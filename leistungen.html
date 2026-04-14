@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="de">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Leistungsübersicht | Gebäudedienste Mendel e.K.</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script>
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    "primary": "#1A1D21",
+                    "secondary": "#A0C6D7",
+                    "accent": "#A0C6D7",
+                    "tertiary-container": "#141c2f",
+                    "primary-fixed": "#e1e2e8",
+                    "surface-container-high": "#272a2e",
+                    "background": "#0F1113",
+                    "surface-bright": "#1A1D21",
+                    "on-primary-container": "#A0C6D7",
+                    "outline": "#75777b",
+                    "inverse-surface": "#f8f9fb",
+                    "secondary-container": "#284E5C",
+                    "on-secondary-container": "#A0C6D7",
+                    "on-primary": "#ffffff",
+                    "primary-container": "#1A1D21",
+                    "surface-dim": "#121417",
+                    "on-surface-variant": "#C5C6CA",
+                    "on-tertiary-container": "#E35800",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-lowest": "#0A0C0E",
+                    "secondary-fixed": "#C2E8FA",
+                    "surface-variant": "#2e3132",
+                    "on-background": "#f8f9fb",
+                    "surface-container-low": "#1A1D21",
+                    "surface-container": "#1E2125",
+                    "on-secondary": "#0F1113",
+                    "surface": "#1A1D21",
+                    "on-surface": "#f8f9fb",
+                    "surface-container-highest": "#323539",
+                    "tertiary-container-bg": "#381000",
+                    "outline-variant": "#45474a"
+                },
+                borderRadius: {
+                    DEFAULT: "0px",
+                    lg: "0px",
+                    xl: "0px",
+                    full: "0px"
+                },
+                fontFamily: {
+                    headline: ["Space Grotesk"],
+                    body: ["Inter"],
+                    label: ["Inter"]
+                }
+            }
+        }
+    }
+</script>
+<style>
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    html { scroll-behavior: smooth; }
+
+    /* Button glow */
+    .btn-glow {
+        box-shadow: 0 0 15px rgba(160, 198, 215, 0.3), 0 4px 15px rgba(0,0,0,0.3);
+        transition: all 0.3s ease;
+    }
+    .btn-glow:hover {
+        box-shadow: 0 0 30px rgba(160, 198, 215, 0.5), 0 4px 20px rgba(0,0,0,0.4);
+        transform: translateY(-2px);
+    }
+    .btn-outline-glow {
+        box-shadow: 0 0 10px rgba(160, 198, 215, 0.15), 0 4px 10px rgba(0,0,0,0.2);
+        transition: all 0.3s ease;
+    }
+    .btn-outline-glow:hover {
+        box-shadow: 0 0 25px rgba(160, 198, 215, 0.35), 0 4px 15px rgba(0,0,0,0.3);
+        transform: translateY(-2px);
+    }
+
+    /* Scroll animations */
+    .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+    .reveal-left {
+        opacity: 0;
+        transform: translateX(-60px);
+        transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-left.active { opacity: 1; transform: translateX(0); }
+    .reveal-right {
+        opacity: 0;
+        transform: translateX(60px);
+        transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-right.active { opacity: 1; transform: translateX(0); }
+    .reveal-scale {
+        opacity: 0;
+        transform: scale(0.9);
+        transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-scale.active { opacity: 1; transform: scale(1); }
+
+    /* Staggered children */
+    .stagger-children > * {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .stagger-children.active > *:nth-child(1) { transition-delay: 0.05s; }
+    .stagger-children.active > *:nth-child(2) { transition-delay: 0.12s; }
+    .stagger-children.active > *:nth-child(3) { transition-delay: 0.19s; }
+    .stagger-children.active > *:nth-child(4) { transition-delay: 0.26s; }
+    .stagger-children.active > *:nth-child(5) { transition-delay: 0.33s; }
+    .stagger-children.active > *:nth-child(6) { transition-delay: 0.40s; }
+    .stagger-children.active > *:nth-child(7) { transition-delay: 0.47s; }
+    .stagger-children.active > *:nth-child(8) { transition-delay: 0.54s; }
+    .stagger-children.active > * { opacity: 1; transform: translateY(0); }
+
+    /* Hero text entrance */
+    @keyframes heroSlideUp {
+        from { opacity: 0; transform: translateY(50px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .hero-anim-1 { animation: heroSlideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both; }
+    .hero-anim-2 { animation: heroSlideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both; }
+    .hero-anim-3 { animation: heroSlideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both; }
+    .hero-anim-4 { animation: heroSlideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.8s both; }
+
+    /* Hero text readability */
+    .hero-text-shadow { text-shadow: 0 2px 16px rgba(0,0,0,0.7), 0 1px 4px rgba(0,0,0,0.5); }
+    .hero-text-shadow-sm { text-shadow: 0 1px 10px rgba(0,0,0,0.6), 0 1px 3px rgba(0,0,0,0.4); }
+
+    /* Nav shrink on scroll */
+    .nav-scrolled { padding-top: 0.75rem !important; padding-bottom: 0.75rem !important; }
+
+    /* Line draw */
+    .line-draw { width: 0; transition: width 1s cubic-bezier(0.16, 1, 0.3, 1); }
+    .line-draw.active { width: 6rem; }
+
+    /* Mobile burger */
+    .burger-line { transition: all 0.3s ease; }
+
+    /* Modal */
+    .modal-overlay { opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+    .modal-overlay.open { opacity: 1; pointer-events: auto; }
+    .modal-content { transform: translateY(30px) scale(0.97); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+    .modal-overlay.open .modal-content { transform: translateY(0) scale(1); }
+
+    /* ═══ UNIQUE ANIMATIONS ═══ */
+
+    /* 1) Magnetic tilt on hover — cards tilt toward cursor */
+    .tilt-card {
+        transition: transform 0.2s ease-out, box-shadow 0.3s ease;
+        will-change: transform;
+    }
+
+    /* 2) Morphing blob background */
+    @keyframes morphBlob {
+        0%   { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+        25%  { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+        50%  { border-radius: 50% 60% 30% 60% / 30% 60% 70% 40%; }
+        75%  { border-radius: 60% 40% 60% 30% / 70% 30% 50% 60%; }
+        100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+    }
+    .morph-blob {
+        animation: morphBlob 12s ease-in-out infinite;
+        background: radial-gradient(ellipse, rgba(160,198,215,0.08) 0%, transparent 70%);
+    }
+
+    /* 3) Text clip gradient scroll — headline shimmers on scroll */
+    @keyframes textShimmer {
+        0%   { background-position: -200% center; }
+        100% { background-position: 200% center; }
+    }
+    .text-shimmer {
+        background: linear-gradient(90deg, #f8f9fb 0%, #A0C6D7 25%, #f8f9fb 50%, #A0C6D7 75%, #f8f9fb 100%);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    .text-shimmer.active {
+        animation: textShimmer 3s ease-in-out 1 forwards;
+    }
+
+    /* 4) Counter number roll-up */
+    @keyframes countUp {
+        from { opacity: 0; transform: translateY(100%); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+    .count-roll { display: inline-block; overflow: hidden; }
+    .count-roll span {
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    .count-roll.active span {
+        animation: countUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    /* 5) Parallax image on scroll */
+    .parallax-img {
+        transition: transform 0.1s linear;
+        will-change: transform;
+    }
+
+    /* 6) Glow pulse for section dividers */
+    @keyframes glowPulse {
+        0%, 100% { box-shadow: 0 0 10px rgba(160,198,215,0.2), 0 0 40px rgba(160,198,215,0.05); }
+        50%      { box-shadow: 0 0 20px rgba(160,198,215,0.4), 0 0 60px rgba(160,198,215,0.1); }
+    }
+    .glow-divider {
+        animation: glowPulse 3s ease-in-out infinite;
+    }
+
+    /* 7) Staggered reveal for bento cards */
+    .bento-stagger > *:nth-child(1) { transition-delay: 0s; }
+    .bento-stagger > *:nth-child(2) { transition-delay: 0.1s; }
+    .bento-stagger > *:nth-child(3) { transition-delay: 0.2s; }
+    .bento-stagger > *:nth-child(4) { transition-delay: 0.3s; }
+    .bento-stagger > *:nth-child(5) { transition-delay: 0.4s; }
+    .bento-stagger > *:nth-child(6) { transition-delay: 0.5s; }
+    .bento-stagger > *:nth-child(7) { transition-delay: 0.6s; }
+
+    /* 8) Image reveal wipe */
+    @keyframes wipeReveal {
+        from { clip-path: inset(0 100% 0 0); }
+        to   { clip-path: inset(0 0 0 0); }
+    }
+    .wipe-reveal {
+        clip-path: inset(0 100% 0 0);
+    }
+    .wipe-reveal.active {
+        animation: wipeReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    /* Feature list item hover */
+    .feature-item {
+        transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .feature-item:hover {
+        transform: translateX(8px);
+        background-color: rgba(160, 198, 215, 0.07);
+        box-shadow: -4px 0 0 0 #A0C6D7;
+    }
+
+    /* Card hover */
+    .card-hover {
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+    }
+    .card-hover:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 0 20px rgba(160, 198, 215, 0.1);
+    }
+
+    /* Stat counter glow */
+    .stat-glow {
+        position: relative;
+    }
+    .stat-glow::after {
+        content: '';
+        position: absolute;
+        inset: -8px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(160,198,215,0.1) 0%, transparent 70%);
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+    }
+    .stat-glow:hover::after {
+        opacity: 1;
+    }
+</style>
+</head>
+<body class="bg-background text-on-surface font-body">
+
+<!-- TopNavBar -->
+<nav id="mainNav" class="fixed top-0 w-full z-50 bg-primary/90 backdrop-blur-xl border-b border-white/5 transition-all duration-300">
+<div class="flex justify-between items-center w-full px-4 sm:px-6 py-4 max-w-screen-2xl mx-auto">
+    <a href="index.html" class="flex items-center gap-3">
+        <img src="assets/logo.png" alt="GDM Logo" class="h-14 sm:h-16 w-auto" style="filter: drop-shadow(0 0 0 transparent);">
+        <span class="text-base sm:text-xl font-bold font-headline text-secondary uppercase tracking-widest hidden sm:inline">
+            Gebäudedienste Mendel e.K.
+        </span>
+    </a>
+    <div class="hidden lg:flex items-center space-x-8">
+        <a class="text-xs font-bold uppercase tracking-widest text-secondary border-b border-secondary pb-1 transition-colors" href="leistungen.html">Leistungen</a>
+        <a class="text-xs font-bold uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-colors" href="index.html#ueber-uns">Über uns</a>
+        <a class="text-xs font-bold uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-colors" href="index.html#referenzen">Referenzen</a>
+        <a class="text-xs font-bold uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-colors" href="index.html#einsatzgebiet">Einsatzgebiet</a>
+        <a class="text-xs font-bold uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-colors" href="index.html#kontakt">Kontakt</a>
+    </div>
+    <div class="flex items-center space-x-4">
+        <a class="bg-secondary text-primary px-6 py-3 text-xs font-bold uppercase tracking-widest rounded-xl btn-glow" href="tel:+491639308292">
+            <span class="material-symbols-outlined mr-1 text-sm align-middle">call</span> Anfrage
+        </a>
+        <button id="burgerBtn" class="lg:hidden flex flex-col gap-1.5 p-2" onclick="document.getElementById('mobileMenu').classList.toggle('hidden')">
+            <span class="burger-line w-6 h-0.5 bg-white block"></span>
+            <span class="burger-line w-6 h-0.5 bg-white block"></span>
+            <span class="burger-line w-4 h-0.5 bg-white block"></span>
+        </button>
+    </div>
+</div>
+<div id="mobileMenu" class="hidden lg:hidden bg-primary/95 backdrop-blur-xl border-t border-white/5 px-6 py-6 space-y-4">
+    <a class="block text-sm font-bold uppercase tracking-widest text-secondary py-2" href="leistungen.html" onclick="document.getElementById('mobileMenu').classList.add('hidden')">Leistungen</a>
+    <a class="block text-sm font-bold uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-colors py-2" href="index.html#ueber-uns" onclick="document.getElementById('mobileMenu').classList.add('hidden')">Über uns</a>
+    <a class="block text-sm font-bold uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-colors py-2" href="index.html#referenzen" onclick="document.getElementById('mobileMenu').classList.add('hidden')">Referenzen</a>
+    <a class="block text-sm font-bold uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-colors py-2" href="index.html#einsatzgebiet" onclick="document.getElementById('mobileMenu').classList.add('hidden')">Einsatzgebiet</a>
+    <a class="block text-sm font-bold uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-colors py-2" href="index.html#kontakt" onclick="document.getElementById('mobileMenu').classList.add('hidden')">Kontakt</a>
+</div>
+</nav>
+
+<main class="pt-20">
+
+<!-- Hero Section -->
+<header class="relative min-h-[500px] sm:min-h-[614px] flex items-center px-4 sm:px-8 overflow-hidden bg-surface-container-low">
+    <div class="absolute inset-0 z-0">
+        <img alt="Leistungsübersicht Header" class="w-full h-full object-cover" src="assets/header-leistungen.png">
+        <div class="absolute inset-0 bg-gradient-to-r from-background/85 via-background/60 to-transparent"></div>
+        <div class="absolute inset-0 bg-black/30"></div>
+    </div>
+    <!-- Morphing blob decoration -->
+    <div class="absolute top-1/4 right-1/4 w-[500px] h-[500px] morph-blob pointer-events-none z-0"></div>
+    <div class="relative z-10 max-w-4xl">
+        <div class="hero-anim-1 flex items-center gap-2 text-on-surface-variant text-xs font-bold uppercase tracking-widest mb-8">
+            <a href="index.html" class="hover:text-secondary transition-colors">Startseite</a>
+            <span class="material-symbols-outlined text-sm">chevron_right</span>
+            <span class="text-secondary">Leistungen</span>
+        </div>
+        <div class="hero-anim-2 inline-block px-3 py-1 bg-secondary/10 border border-secondary/30 text-secondary text-xs font-bold tracking-widest uppercase mb-6 rounded-xl">
+            Präzision im Handwerk
+        </div>
+        <h1 class="hero-anim-3 hero-text-shadow font-headline text-5xl sm:text-6xl md:text-8xl font-bold tracking-tighter leading-none text-on-surface mb-6">
+            Unsere <br><span class="text-secondary">Leistungen.</span>
+        </h1>
+        <p class="hero-anim-4 hero-text-shadow-sm text-base sm:text-lg md:text-xl text-on-surface-variant max-w-2xl leading-relaxed">
+            Vom präzisen Rückbau bis zur veredelten Sanierung – wir bieten ganzheitliche Gebäudedienste mit industrieller Qualität und handwerklicher Exzellenz.
+        </p>
+    </div>
+</header>
+
+<!-- Animated stats bar -->
+<section class="bg-surface-container border-y border-white/5 py-10 sm:py-14">
+<div class="max-w-screen-2xl mx-auto px-4 sm:px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center stagger-children">
+    <div class="stat-glow">
+        <div class="count-roll text-3xl sm:text-4xl font-headline font-bold text-secondary mb-2"><span>6+</span></div>
+        <div class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant/60">Jahre Erfahrung</div>
+    </div>
+    <div class="stat-glow">
+        <div class="count-roll text-3xl sm:text-4xl font-headline font-bold text-secondary mb-2"><span>500+</span></div>
+        <div class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant/60">Projekte abgeschlossen</div>
+    </div>
+    <div class="stat-glow">
+        <div class="count-roll text-3xl sm:text-4xl font-headline font-bold text-secondary mb-2"><span>24h</span></div>
+        <div class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant/60">Notdienst verfügbar</div>
+    </div>
+    <div class="stat-glow">
+        <div class="count-roll text-3xl sm:text-4xl font-headline font-bold text-secondary mb-2"><span>100%</span></div>
+        <div class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant/60">Festpreis-Garantie</div>
+    </div>
+</div>
+</section>
+
+<!-- Main Content Canvas -->
+<div class="px-4 sm:px-8 py-16 sm:py-24 space-y-24 sm:space-y-32 max-w-screen-2xl mx-auto">
+
+    <!-- ═══ Section 1: Sanierung ═══ -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-center" id="sanierung">
+        <div class="lg:col-span-5 reveal-left">
+            <div class="line-draw h-1 bg-secondary mb-8 glow-divider"></div>
+            <h2 class="font-headline text-3xl sm:text-4xl font-bold mb-6 text-shimmer">Sanierung & Handwerk</h2>
+            <p class="text-on-surface-variant mb-8 leading-relaxed">
+                Wir transformieren Bestandsgebäude in moderne Lebensräume. Unsere Expertise umfasst alle Gewerke der Innensanierung und Fassadengestaltung. Durch präzise Planung und hochwertige Materialien garantieren wir Langlebigkeit und Ästhetik.
+            </p>
+            <ul class="stagger-children space-y-4 mb-10">
+                <li class="feature-item flex items-center gap-3 text-secondary p-2 rounded-lg">
+                    <span class="material-symbols-outlined text-sm">check_circle</span>
+                    <span class="font-bold uppercase tracking-wider text-xs">Dacharbeiten & Abdichtung</span>
+                </li>
+                <li class="feature-item flex items-center gap-3 text-secondary p-2 rounded-lg">
+                    <span class="material-symbols-outlined text-sm">check_circle</span>
+                    <span class="font-bold uppercase tracking-wider text-xs">Sanitärinstallationen</span>
+                </li>
+                <li class="feature-item flex items-center gap-3 text-secondary p-2 rounded-lg">
+                    <span class="material-symbols-outlined text-sm">check_circle</span>
+                    <span class="font-bold uppercase tracking-wider text-xs">Moderner Trockenbau</span>
+                </li>
+                <li class="feature-item flex items-center gap-3 text-secondary p-2 rounded-lg">
+                    <span class="material-symbols-outlined text-sm">check_circle</span>
+                    <span class="font-bold uppercase tracking-wider text-xs">Fliesen & Bodenbeläge</span>
+                </li>
+                <li class="feature-item flex items-center gap-3 text-secondary p-2 rounded-lg">
+                    <span class="material-symbols-outlined text-sm">check_circle</span>
+                    <span class="font-bold uppercase tracking-wider text-xs">Maler- & Tapezierarbeiten</span>
+                </li>
+            </ul>
+            <a href="index.html#kontakt" class="inline-block bg-secondary text-primary px-8 py-4 font-bold uppercase tracking-widest text-xs rounded-xl btn-glow">Angebot anfordern</a>
+        </div>
+        <div class="lg:col-span-7 reveal-right">
+            <!-- Single large image with wipe animation -->
+            <div class="rounded-xl overflow-hidden wipe-reveal">
+                <img alt="Sanierung und Handwerk" class="w-full h-[350px] sm:h-[500px] object-cover parallax-img" src="assets/sanierung-handwerk.png">
+            </div>
+            <div class="mt-6 bg-surface-container-high p-6 sm:p-8 rounded-xl border-l-4 border-secondary card-hover tilt-card reveal">
+                <h3 class="font-headline text-lg sm:text-xl font-bold mb-3">Komplettsanierung aus einer Hand</h3>
+                <p class="text-sm text-on-surface-variant">Wir koordinieren alle Gewerke für Sie, von der Entkernung bis zur Schlüsselübergabe — ein Ansprechpartner, ein Festpreis.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ Section 2: Reinigung (Bento Grid) ═══ -->
+    <section id="reinigung">
+        <div class="text-center mb-12 sm:mb-16 reveal">
+            <div class="line-draw h-1 bg-secondary mx-auto mb-8 glow-divider"></div>
+            <h2 class="font-headline text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-shimmer">Reinigung & Service</h2>
+            <p class="max-w-2xl mx-auto text-on-surface-variant">Werterhalt durch professionelle Pflege. Wir sichern den Glanz und die Hygiene Ihrer Objekte — für Privat, Gewerbe und Industrie.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[200px] sm:auto-rows-[250px] bento-stagger stagger-children">
+            <!-- Main image card -->
+            <div class="md:col-span-2 md:row-span-2 bg-surface-container-low rounded-xl overflow-hidden relative group tilt-card">
+                <img alt="Fassadenreinigung" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" src="assets/fassadenreinigung.png">
+                <div class="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent p-6 sm:p-8 flex flex-col justify-end">
+                    <span class="inline-block px-2 py-1 bg-secondary/20 text-secondary text-[10px] font-bold uppercase tracking-widest w-fit mb-3 rounded-lg">Kerndienst</span>
+                    <h3 class="text-xl sm:text-2xl font-bold font-headline mb-2">Fassadenreinigung</h3>
+                    <p class="text-sm text-on-surface-variant">Schonende Hochdruck- und Niederdruckverfahren für alle Außenflächen. Algenentfernung, Graffitischutz und Imprägnierung.</p>
+                </div>
+            </div>
+            <!-- Bauendreinigung -->
+            <div class="md:col-span-2 bg-surface-container-high rounded-xl p-6 sm:p-8 flex flex-col justify-center border-b-2 border-secondary/20 tilt-card">
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="material-symbols-outlined text-secondary text-2xl">mop</span>
+                    <h3 class="text-lg sm:text-xl font-bold font-headline">Bauendreinigung</h3>
+                </div>
+                <p class="text-sm text-on-surface-variant mb-3">Wir machen Ihr Projekt bezugsfertig — staubfrei und makellos. Inklusive Fensterreinigung, Bodenversiegelung und Feinreinigung aller Oberflächen.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-[9px] font-bold uppercase tracking-widest bg-secondary/10 text-secondary px-2 py-1 rounded">Nach Neubau</span>
+                    <span class="text-[9px] font-bold uppercase tracking-widest bg-secondary/10 text-secondary px-2 py-1 rounded">Nach Sanierung</span>
+                    <span class="text-[9px] font-bold uppercase tracking-widest bg-secondary/10 text-secondary px-2 py-1 rounded">Schlüsselfertig</span>
+                </div>
+            </div>
+            <!-- Treppenhaus -->
+            <div class="bg-surface-container rounded-xl p-6 flex flex-col items-center justify-center text-center tilt-card group">
+                <span class="material-symbols-outlined text-secondary text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">cleaning_services</span>
+                <h4 class="font-bold text-xs uppercase tracking-widest mb-1">Treppenhausreinigung</h4>
+                <p class="text-[10px] text-on-surface-variant/70">Regelmäßig & zuverlässig</p>
+            </div>
+            <!-- Graffiti -->
+            <div class="bg-surface-container rounded-xl p-6 flex flex-col items-center justify-center text-center tilt-card group">
+                <span class="material-symbols-outlined text-secondary text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">brush</span>
+                <h4 class="font-bold text-xs uppercase tracking-widest mb-1">Graffitientfernung</h4>
+                <p class="text-[10px] text-on-surface-variant/70">Rückstandslos & schonend</p>
+            </div>
+            <!-- Glasreinigung -->
+            <div class="bg-surface-container rounded-xl p-6 flex flex-col items-center justify-center text-center tilt-card group">
+                <span class="material-symbols-outlined text-secondary text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">window</span>
+                <h4 class="font-bold text-xs uppercase tracking-widest mb-1">Glasreinigung</h4>
+                <p class="text-[10px] text-on-surface-variant/70">Streifenfrei & professionell</p>
+            </div>
+            <!-- Grundreinigung -->
+            <div class="bg-surface-container rounded-xl p-6 flex flex-col items-center justify-center text-center tilt-card group">
+                <span class="material-symbols-outlined text-secondary text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">water_drop</span>
+                <h4 class="font-bold text-xs uppercase tracking-widest mb-1">Grundreinigung</h4>
+                <p class="text-[10px] text-on-surface-variant/70">Tiefenrein & desinfiziert</p>
+            </div>
+            <!-- CTA Banner -->
+            <div class="md:col-span-4 bg-secondary/10 border border-secondary/20 rounded-xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between">
+                <div>
+                    <h3 class="text-lg sm:text-xl font-bold font-headline text-secondary mb-2">Sonderreinigung oder Notdienst?</h3>
+                    <p class="text-sm text-on-surface-variant">Spezielle Verschmutzungen, Wasserschäden oder dringende Einsätze — wir sind 24h für Sie da.</p>
+                </div>
+                <a href="index.html#kontakt" class="mt-6 md:mt-0 bg-secondary text-primary px-8 py-3 font-bold uppercase tracking-widest text-xs rounded-xl btn-glow whitespace-nowrap">Jetzt Anfragen</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ Section 3: Rückbau (Asymmetric) ═══ -->
+    <section class="relative" id="rueckbau">
+        <!-- Decorative blob -->
+        <div class="absolute -top-20 -left-20 w-[400px] h-[400px] morph-blob pointer-events-none opacity-50"></div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-16 items-center relative z-10">
+            <div class="order-2 lg:order-1 rounded-xl overflow-hidden shadow-2xl wipe-reveal">
+                <img alt="Rückbau und Entsorgung" class="w-full aspect-video object-cover parallax-img" src="assets/rueckbau-entsorgung.png">
+            </div>
+            <div class="order-1 lg:order-2 reveal-right">
+                <div class="line-draw h-1 bg-secondary mb-8 glow-divider"></div>
+                <h2 class="font-headline text-3xl sm:text-4xl font-bold mb-6 text-shimmer">Rückbau & Entsorgung</h2>
+                <p class="text-on-surface-variant mb-8 leading-relaxed">
+                    Platz schaffen für Neues. Wir führen Abbruch- und Entkernungsarbeiten fachgerecht durch. Besonderen Fokus legen wir auf die Schadstoffsanierung und umweltgerechte Entsorgung.
+                </p>
+                <div class="stagger-children space-y-5">
+                    <div class="feature-item flex gap-4 p-4 bg-surface-container-low rounded-xl tilt-card">
+                        <span class="material-symbols-outlined text-on-tertiary-container bg-tertiary-container p-3 rounded-lg">warning</span>
+                        <div>
+                            <h4 class="font-bold text-sm uppercase">Asbestsanierung TRGS 519</h4>
+                            <p class="text-xs text-on-surface-variant">Zertifizierte Fachkräfte für den sicheren Umgang mit Gefahrstoffen.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item flex gap-4 p-4 bg-surface-container-low rounded-xl tilt-card">
+                        <span class="material-symbols-outlined text-secondary bg-secondary/20 p-3 rounded-lg">precision_manufacturing</span>
+                        <div>
+                            <h4 class="font-bold text-sm uppercase">Selektive Entkernung</h4>
+                            <p class="text-xs text-on-surface-variant">Rückführung bis auf die Grundmauern unter Erhalt der Statik.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item flex gap-4 p-4 bg-surface-container-low rounded-xl tilt-card">
+                        <span class="material-symbols-outlined text-secondary bg-secondary/20 p-3 rounded-lg">delete_sweep</span>
+                        <div>
+                            <h4 class="font-bold text-sm uppercase">Entrümpelung & Abtransport</h4>
+                            <p class="text-xs text-on-surface-variant">Schnelle Räumung und fachgerechte Trennung der Wertstoffe.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item flex gap-4 p-4 bg-surface-container-low rounded-xl tilt-card">
+                        <span class="material-symbols-outlined text-secondary bg-secondary/20 p-3 rounded-lg">recycling</span>
+                        <div>
+                            <h4 class="font-bold text-sm uppercase">Umweltgerechte Entsorgung</h4>
+                            <p class="text-xs text-on-surface-variant">Lückenloser Entsorgungsnachweis und zertifizierte Abfallwirtschaft.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ CTA Section ═══ -->
+    <section class="bg-surface-container-highest rounded-none md:rounded-xl p-8 sm:p-12 md:p-24 relative overflow-hidden reveal-scale">
+        <div class="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none">
+            <div class="w-full h-full" style="background-image: radial-gradient(circle at 2px 2px, #A0C6D7 1px, transparent 0); background-size: 24px 24px;"></div>
+        </div>
+        <!-- Morphing blob decoration -->
+        <div class="absolute bottom-0 left-0 w-[400px] h-[400px] morph-blob pointer-events-none"></div>
+        <div class="relative z-10 max-w-3xl">
+            <h2 class="font-headline text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 leading-tight">Bereit für Ihr nächstes Projekt?</h2>
+            <p class="text-base sm:text-xl text-on-surface-variant mb-8 sm:mb-12">Lassen Sie uns gemeinsam über Ihre Anforderungen sprechen. Wir erstellen Ihnen ein unverbindliches Angebot, das exakt auf Ihre Bedürfnisse zugeschnitten ist.</p>
+            <div class="flex flex-col sm:flex-row flex-wrap gap-4">
+                <a href="index.html#kontakt" class="bg-secondary text-primary px-8 sm:px-10 py-4 font-bold uppercase tracking-widest text-xs sm:text-sm shadow-xl active:scale-95 transition-all rounded-xl btn-glow text-center">Angebot anfordern</a>
+                <a href="tel:+491639308292" class="border border-secondary/40 hover:border-secondary text-secondary px-8 sm:px-10 py-4 font-bold uppercase tracking-widest text-xs sm:text-sm transition-all rounded-xl btn-outline-glow text-center flex items-center justify-center">
+                    <span class="material-symbols-outlined mr-2 text-lg">call</span> Direkt anrufen
+                </a>
+            </div>
+        </div>
+    </section>
+
+</div>
+</main>
+
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-white/5">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-16 px-4 sm:px-8 py-16 sm:py-20 max-w-screen-2xl mx-auto">
+    <div class="col-span-2 md:col-span-1">
+        <a href="index.html" class="flex items-center gap-3 mb-8">
+            <img src="assets/logo.png" alt="GDM Logo" class="h-10 w-auto">
+            <span class="text-base sm:text-lg font-bold font-headline text-secondary tracking-widest">Gebäudedienste Mendel e.K.</span>
+        </a>
+        <p class="text-sm leading-relaxed text-on-surface-variant font-medium">Industrielle Handwerks- und Reinigungsdienstleistungen für die Metropolregion Hamburg & Pinneberg.</p>
+    </div>
+    <div>
+        <h4 class="font-headline text-white text-xs font-bold uppercase tracking-[0.2em] mb-6 sm:mb-8">Leistungen</h4>
+        <ul class="space-y-3 sm:space-y-4 text-on-surface-variant text-xs font-bold uppercase tracking-widest">
+            <li><a class="hover:text-secondary transition-colors" href="#sanierung">Sanierung</a></li>
+            <li><a class="hover:text-secondary transition-colors" href="#reinigung">Reinigung</a></li>
+            <li><a class="hover:text-secondary transition-colors" href="#rueckbau">Rückbau</a></li>
+            <li><a class="hover:text-secondary transition-colors" href="#rueckbau">Asbest</a></li>
+        </ul>
+    </div>
+    <div>
+        <h4 class="font-headline text-white text-xs font-bold uppercase tracking-[0.2em] mb-6 sm:mb-8">Unternehmen</h4>
+        <ul class="space-y-3 sm:space-y-4 text-on-surface-variant text-xs font-bold uppercase tracking-widest">
+            <li><a class="hover:text-secondary transition-colors" href="index.html#ueber-uns">Über uns</a></li>
+            <li><a class="hover:text-secondary transition-colors" href="index.html#referenzen">Referenzen</a></li>
+            <li><a class="hover:text-secondary transition-colors" href="index.html#einsatzgebiet">Einsatzgebiet</a></li>
+            <li><a class="hover:text-secondary transition-colors" href="#">Karriere</a></li>
+        </ul>
+    </div>
+    <div>
+        <h4 class="font-headline text-white text-xs font-bold uppercase tracking-[0.2em] mb-6 sm:mb-8">Rechtliches</h4>
+        <ul class="space-y-3 sm:space-y-4 text-on-surface-variant text-xs font-bold uppercase tracking-widest">
+            <li><a class="hover:text-secondary transition-colors cursor-pointer" onclick="openModal('impressumModal')">Impressum</a></li>
+            <li><a class="hover:text-secondary transition-colors cursor-pointer" onclick="openModal('datenschutzModal')">Datenschutz</a></li>
+        </ul>
+    </div>
+</div>
+<div class="border-t border-white/5 py-8 sm:py-10 px-4 sm:px-8 text-center text-[10px] font-bold uppercase tracking-[0.3em] text-on-surface-variant/40">
+    &copy; 2026 Gebäudedienste Mendel e.K. — Precision In Service.
+</div>
+</footer>
+
+<!-- BottomNavBar (Mobile) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 pb-safe bg-primary md:hidden border-t border-white/5 shadow-2xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:text-secondary w-full h-full" href="tel:+491639308292">
+    <span class="material-symbols-outlined mb-0.5 text-xl">call</span>
+    <span class="text-[9px] font-bold uppercase tracking-widest">Anrufen</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:text-secondary w-full h-full" href="https://wa.me/491639308292">
+    <span class="material-symbols-outlined mb-0.5 text-xl">chat</span>
+    <span class="text-[9px] font-bold uppercase tracking-widest">WhatsApp</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary w-full h-full" href="index.html#kontakt">
+    <span class="material-symbols-outlined mb-0.5 text-xl">request_quote</span>
+    <span class="text-[9px] font-bold uppercase tracking-widest">Anfrage</span>
+</a>
+</nav>
+
+<!-- IMPRESSUM MODAL -->
+<div id="impressumModal" class="modal-overlay fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm flex items-start justify-center overflow-y-auto p-4 sm:p-8">
+<div class="modal-content bg-background border border-white/10 rounded-xl max-w-3xl w-full my-8 sm:my-16 relative">
+    <button onclick="closeModal('impressumModal')" class="absolute top-4 right-4 sm:top-6 sm:right-6 text-on-surface-variant hover:text-secondary transition-colors z-10">
+        <span class="material-symbols-outlined text-2xl">close</span>
+    </button>
+    <div class="p-8 sm:p-12 md:p-16">
+        <h2 class="text-3xl sm:text-4xl font-headline font-bold mb-8 text-secondary">Impressum</h2>
+        <div class="text-on-surface-variant text-sm leading-relaxed space-y-6">
+            <p class="text-xs font-bold uppercase tracking-widest text-secondary/70">gemäß §5 TMG (Telemediengesetz):</p>
+            <div><p class="font-bold text-white">Nikolaj Mendel</p><p>Bernhard-Nocht-Straße 85</p><p>20359 Hamburg</p><p>Deutschland</p></div>
+            <div><h3 class="font-bold text-white text-lg mb-3">Kontakt</h3><p>Telefon: +49 163 930 82 92 / 163 930 82 95</p><p>E-Mail: gebaeudedienstemendel@gmx.de</p><p>Internet: www.gebaeudedienste-mendel.de</p></div>
+            <p>Rechtsform des Unternehmens: e.K. (eingetragener Kaufmann)</p>
+            <div><p class="font-bold text-white">Steuer-Nr.:</p><p>Finanzamt Pinneberg, 31/055/06985</p></div>
+            <div><h3 class="font-bold text-white text-lg mb-3">Verbraucherstreitbeilegung</h3><p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p></div>
+            <div><h3 class="font-bold text-white text-lg mb-3">EU-Streitschlichtung</h3><p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: ec.europa.eu/consumers/odr. Unsere E-Mail-Adresse finden Sie oben im Impressum.</p></div>
+            <div><h3 class="font-bold text-white text-lg mb-3">Haftung für Inhalte</h3><p>Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p></div>
+            <div><h3 class="font-bold text-white text-lg mb-3">Haftung für Links</h3><p>Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen.</p></div>
+            <div><h3 class="font-bold text-white text-lg mb-3">Urheberrecht</h3><p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht.</p></div>
+            <p class="text-xs text-on-surface-variant/50">Quelle: e-recht24.de</p>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- DATENSCHUTZ MODAL -->
+<div id="datenschutzModal" class="modal-overlay fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm flex items-start justify-center overflow-y-auto p-4 sm:p-8">
+<div class="modal-content bg-background border border-white/10 rounded-xl max-w-3xl w-full my-8 sm:my-16 relative">
+    <button onclick="closeModal('datenschutzModal')" class="absolute top-4 right-4 sm:top-6 sm:right-6 text-on-surface-variant hover:text-secondary transition-colors z-10">
+        <span class="material-symbols-outlined text-2xl">close</span>
+    </button>
+    <div class="p-8 sm:p-12 md:p-16">
+        <h2 class="text-3xl sm:text-4xl font-headline font-bold mb-8 text-secondary">Datenschutzerklärung</h2>
+        <div class="text-on-surface-variant text-sm leading-relaxed space-y-6">
+            <div><h3 class="font-bold text-white text-lg mb-3">Allgemeiner Hinweis und Pflichtinformationen</h3><h4 class="font-bold text-white mb-2">Benennung der verantwortlichen Stelle</h4><p>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</p><div class="mt-3"><p class="font-bold text-white">Gebäudedienste Mendel e.K.</p><p>Nikolaj Mendel</p><p>Diesterwegstraße 34</p><p>25421 Pinneberg</p></div><p class="mt-3">Die verantwortliche Stelle entscheidet allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z.B. Namen, Kontaktdaten o. Ä.).</p></div>
+            <div><h3 class="font-bold text-white text-lg mb-3">Widerruf Ihrer Einwilligung zur Datenverarbeitung</h3><p>Nur mit Ihrer ausdrücklichen Einwilligung sind einige Vorgänge der Datenverarbeitung möglich. Ein Widerruf Ihrer bereits erteilten Einwilligung ist jederzeit möglich. Für den Widerruf genügt eine formlose Mitteilung per E-Mail.</p></div>
+            <div><h3 class="font-bold text-white text-lg mb-3">Recht auf Beschwerde bei der zuständigen Aufsichtsbehörde</h3><p>Als Betroffener steht Ihnen im Falle eines datenschutzrechtlichen Verstoßes ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu.</p></div>
+            <div><h3 class="font-bold text-white text-lg mb-3">Recht auf Datenübertragbarkeit</h3><p>Ihnen steht das Recht zu, Daten, die wir auf Grundlage Ihrer Einwilligung oder in Erfüllung eines Vertrags automatisiert verarbeiten, an sich oder an Dritte aushändigen zu lassen.</p></div>
+            <div><h3 class="font-bold text-white text-lg mb-3">SSL- bzw. TLS-Verschlüsselung</h3><p>Aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte nutzt unsere Website eine SSL-bzw. TLS-Verschlüsselung.</p></div>
+            <div><h3 class="font-bold text-white text-lg mb-3">Server-Log-Dateien</h3><p>In Server-Log-Dateien erhebt und speichert der Provider der Website automatisch Informationen, die Ihr Browser automatisch an uns übermittelt.</p></div>
+            <div><h3 class="font-bold text-white text-lg mb-3">Kontaktformular</h3><p>Per Kontaktformular übermittelte Daten werden einschließlich Ihrer Kontaktdaten gespeichert, um Ihre Anfrage bearbeiten zu können oder um für Anschlussfragen bereitzustehen. Eine Weitergabe dieser Daten findet ohne Ihre Einwilligung nicht statt.</p></div>
+            <div><h3 class="font-bold text-white text-lg mb-3">Cookies</h3><p>Wenn Sie auf unserer Website einen Kommentar hinterlassen, können Sie sich dafür entscheiden, Ihren Namen, Ihre E-Mail-Adresse und Ihre Website in Cookies zu speichern.</p></div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- JavaScript -->
+<script>
+// Scroll reveal animations
+function initScrollReveal() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .stagger-children, .line-draw, .text-shimmer, .wipe-reveal, .count-roll').forEach(el => {
+        observer.observe(el);
+    });
+}
+
+// Nav shrink on scroll
+function initNavShrink() {
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 80) {
+            nav.classList.add('nav-scrolled');
+        } else {
+            nav.classList.remove('nav-scrolled');
+        }
+    });
+}
+
+// Magnetic tilt effect on cards
+function initTiltCards() {
+    document.querySelectorAll('.tilt-card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotateX = (y - centerY) / centerY * -4;
+            const rotateY = (x - centerX) / centerX * 4;
+            card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-2px)`;
+        });
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(800px) rotateX(0) rotateY(0) translateY(0)';
+        });
+    });
+}
+
+// Parallax images on scroll
+function initParallax() {
+    const images = document.querySelectorAll('.parallax-img');
+    if (!images.length) return;
+    window.addEventListener('scroll', () => {
+        images.forEach(img => {
+            const rect = img.getBoundingClientRect();
+            const scrollPercent = (rect.top + rect.height / 2) / window.innerHeight;
+            const offset = (scrollPercent - 0.5) * -30;
+            img.style.transform = `translateY(${offset}px) scale(1.05)`;
+        });
+    }, { passive: true });
+}
+
+// Modal functions
+function openModal(id) {
+    document.getElementById(id).classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+function closeModal(id) {
+    document.getElementById(id).classList.remove('open');
+    document.body.style.overflow = '';
+}
+document.querySelectorAll('.modal-overlay').forEach(modal => {
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+    });
+});
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        document.querySelectorAll('.modal-overlay.open').forEach(m => {
+            m.classList.remove('open');
+            document.body.style.overflow = '';
+        });
+    }
+});
+
+// Init all
+document.addEventListener('DOMContentLoaded', () => {
+    initScrollReveal();
+    initNavShrink();
+    initTiltCards();
+    initParallax();
+});
+</script>
+
+</body>
+</html>

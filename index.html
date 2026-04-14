@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="de">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Gebäudedienste Mendel e.K. | Sanierung, Reinigung & Rückbau in Hamburg & Pinneberg</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script>
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    "primary": "#1A1D21",
+                    "secondary": "#A0C6D7",
+                    "accent": "#A0C6D7",
+                    "tertiary-container": "#141c2f",
+                    "error-container": "#ffdad6",
+                    "on-error-container": "#93000a",
+                    "primary-fixed": "#e1e2e8",
+                    "surface-container-high": "#e7e8ea",
+                    "background": "#0F1113",
+                    "surface-bright": "#1A1D21",
+                    "on-primary-container": "#A0C6D7",
+                    "outline": "#75777b",
+                    "error": "#ba1a1a",
+                    "inverse-surface": "#f8f9fb",
+                    "secondary-container": "#A0C6D7",
+                    "on-secondary-container": "#0F1113",
+                    "tertiary-fixed-dim": "#bec6e0",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#3f465c",
+                    "on-primary-fixed-variant": "#44474b",
+                    "primary-fixed-dim": "#c5c6cc",
+                    "primary-container": "#1A1D21",
+                    "surface-dim": "#121417",
+                    "on-surface-variant": "#C5C6CA",
+                    "on-tertiary-container": "#7c849c",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-lowest": "#0A0C0E",
+                    "surface-variant": "#2e3132",
+                    "inverse-primary": "#c5c6cc",
+                    "on-background": "#f8f9fb",
+                    "surface-container-low": "#1A1D21",
+                    "surface-container": "#1E2125",
+                    "on-secondary": "#0F1113",
+                    "on-primary-fixed": "#191c20",
+                    "surface": "#1A1D21",
+                    "inverse-on-surface": "#191c1e",
+                    "surface-tint": "#A0C6D7",
+                    "tertiary": "#00020a",
+                    "outline-variant": "#45474a",
+                    "on-surface": "#f8f9fb",
+                    "surface-container-highest": "#2e3132",
+                    "on-error": "#ffffff"
+                },
+                borderRadius: {
+                    DEFAULT: "0px",
+                    lg: "0px",
+                    xl: "0px",
+                    full: "0px"
+                },
+                fontFamily: {
+                    headline: ["Space Grotesk"],
+                    body: ["Inter"],
+                    label: ["Inter"]
+                }
+            }
+        }
+    }
+</script>
+<style>
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .hero-gradient {
+        background: linear-gradient(135deg, #1A1D21 0%, #0F1113 100%);
+    }
+    .industrial-border {
+        border: 1px solid rgba(160, 198, 215, 0.15);
+    }
+    .accent-underline {
+        position: relative;
+    }
+    .accent-underline::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #A0C6D7;
+    }
+    html { scroll-behavior: smooth; }
+
+    /* Button glow */
+    .btn-glow {
+        box-shadow: 0 0 15px rgba(160, 198, 215, 0.3), 0 4px 15px rgba(0,0,0,0.3);
+        transition: all 0.3s ease;
+    }
+    .btn-glow:hover {
+        box-shadow: 0 0 30px rgba(160, 198, 215, 0.5), 0 4px 20px rgba(0,0,0,0.4);
+        transform: translateY(-2px);
+    }
+    .btn-outline-glow {
+        box-shadow: 0 0 10px rgba(160, 198, 215, 0.15), 0 4px 10px rgba(0,0,0,0.2);
+        transition: all 0.3s ease;
+    }
+    .btn-outline-glow:hover {
+        box-shadow: 0 0 25px rgba(160, 198, 215, 0.35), 0 4px 15px rgba(0,0,0,0.3);
+        transform: translateY(-2px);
+    }
+
+    /* Scroll animations */
+    .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .reveal-left {
+        opacity: 0;
+        transform: translateX(-60px);
+        transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-left.active {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    .reveal-right {
+        opacity: 0;
+        transform: translateX(60px);
+        transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-right.active {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    .reveal-scale {
+        opacity: 0;
+        transform: scale(0.9);
+        transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-scale.active {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    /* Staggered children */
+    .stagger-children > * {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .stagger-children.active > *:nth-child(1) { transition-delay: 0.05s; }
+    .stagger-children.active > *:nth-child(2) { transition-delay: 0.12s; }
+    .stagger-children.active > *:nth-child(3) { transition-delay: 0.19s; }
+    .stagger-children.active > *:nth-child(4) { transition-delay: 0.26s; }
+    .stagger-children.active > *:nth-child(5) { transition-delay: 0.33s; }
+    .stagger-children.active > *:nth-child(6) { transition-delay: 0.40s; }
+    .stagger-children.active > * {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Prozessablauf hover */
+    .process-step .step-number {
+        transition: color 0.4s ease, transform 0.4s ease, text-shadow 0.4s ease;
+    }
+    .process-step:hover .step-number {
+        color: #A0C6D7 !important;
+        text-shadow: 0 0 40px rgba(160, 198, 215, 0.6), 0 0 80px rgba(160, 198, 215, 0.3);
+        transform: scale(1.08);
+    }
+    .process-step .step-content {
+        transition: transform 0.4s ease;
+    }
+    .process-step:hover .step-content {
+        transform: translateY(-4px);
+    }
+
+    /* Floating animation for hero elements */
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-8px); }
+    }
+    .float-anim {
+        animation: float 6s ease-in-out infinite;
+    }
+
+    /* Hero text entrance */
+    @keyframes heroSlideUp {
+        from { opacity: 0; transform: translateY(50px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .hero-anim-1 { animation: heroSlideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both; }
+    .hero-anim-2 { animation: heroSlideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both; }
+    .hero-anim-3 { animation: heroSlideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both; }
+    .hero-anim-4 { animation: heroSlideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.8s both; }
+    .hero-anim-5 { animation: heroSlideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 1.0s both; }
+
+    /* Hero text readability */
+    .hero-text-shadow {
+        text-shadow: 0 2px 16px rgba(0,0,0,0.7), 0 1px 4px rgba(0,0,0,0.5);
+    }
+    .hero-text-shadow-sm {
+        text-shadow: 0 1px 10px rgba(0,0,0,0.6), 0 1px 3px rgba(0,0,0,0.4);
+    }
+
+    /* Parallax-like subtle movement */
+    @keyframes subtlePulse {
+        0%, 100% { opacity: 0.55; }
+        50% { opacity: 0.65; }
+    }
+    .video-overlay-pulse {
+        animation: subtlePulse 4s ease-in-out infinite;
+    }
+
+    /* Card lift on hover */
+    .card-hover {
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+    }
+    .card-hover:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 0 20px rgba(160, 198, 215, 0.1);
+    }
+
+    /* Counter animation */
+    @keyframes countPulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+
+    /* Nav shrink on scroll */
+    .nav-scrolled {
+        padding-top: 0.75rem !important;
+        padding-bottom: 0.75rem !important;
+    }
+
+    /* Smooth line draw */
+    .line-draw {
+        width: 0;
+        transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .line-draw.active {
+        width: 6rem;
+    }
+
+    /* Mobile burger */
+    .burger-line {
+        transition: all 0.3s ease;
+    }
+
+    /* Modal */
+    .modal-overlay {
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+    }
+    .modal-overlay.open {
+        opacity: 1;
+        pointer-events: auto;
+    }
+    .modal-content {
+        transform: translateY(30px) scale(0.97);
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .modal-overlay.open .modal-content {
+        transform: translateY(0) scale(1);
+    }
+
+    /* Image shimmer */
+    @keyframes shimmer {
+        0% { background-position: -200% 0; }
+        100% { background-position: 200% 0; }
+    }
+    .img-shimmer {
+        position: relative;
+        overflow: hidden;
+    }
+    .img-shimmer::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, transparent, rgba(160,198,215,0.04), transparent);
+        background-size: 200% 100%;
+        animation: shimmer 3s ease-in-out infinite;
+        pointer-events: none;
+    }
+</style>
+</head>
+<body class="bg-background font-body text-on-surface">
+
+<!-- TopNavBar -->
+<nav id="mainNav" class="fixed top-0 w-full z-50 bg-primary/90 backdrop-blur-xl border-b border-white/5 transition-all duration-300">
+<div class="flex justify-between items-center w-full px-4 sm:px-6 py-4 max-w-screen-2xl mx-auto">
+    <a href="index.html" class="flex items-center gap-3">
+        <img src="assets/logo.png" alt="GDM Logo" class="h-14 sm:h-16 w-auto" style="filter: drop-shadow(0 0 0 transparent);">
+        <span class="text-base sm:text-xl font-bold font-headline text-secondary uppercase tracking-widest hidden sm:inline">
+            Gebäudedienste Mendel e.K.
+        </span>
+    </a>
+    <div class="hidden lg:flex items-center space-x-8">
+        <a class="text-xs font-bold uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-colors" href="#leistungen">Leistungen</a>
+        <a class="text-xs font-bold uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-colors" href="#ueber-uns">Über uns</a>
+        <a class="text-xs font-bold uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-colors" href="#referenzen">Referenzen</a>
+        <a class="text-xs font-bold uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-colors" href="#einsatzgebiet">Einsatzgebiet</a>
+        <a class="text-xs font-bold uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-colors" href="#kontakt">Kontakt</a>
+    </div>
+    <div class="flex items-center space-x-4">
+        <a class="bg-secondary text-primary px-6 py-3 text-xs font-bold uppercase tracking-widest rounded-xl btn-glow" href="tel:+4916393082 92">
+            <span class="material-symbols-outlined mr-1 text-sm align-middle">call</span> Anfrage
+        </a>
+        <!-- Mobile burger -->
+        <button id="burgerBtn" class="lg:hidden flex flex-col gap-1.5 p-2" onclick="document.getElementById('mobileMenu').classList.toggle('hidden')">
+            <span class="burger-line w-6 h-0.5 bg-white block"></span>
+            <span class="burger-line w-6 h-0.5 bg-white block"></span>
+            <span class="burger-line w-4 h-0.5 bg-white block"></span>
+        </button>
+    </div>
+</div>
+<!-- Mobile dropdown menu -->
+<div id="mobileMenu" class="hidden lg:hidden bg-primary/95 backdrop-blur-xl border-t border-white/5 px-6 py-6 space-y-4">
+    <a class="block text-sm font-bold uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-colors py-2" href="#leistungen" onclick="document.getElementById('mobileMenu').classList.add('hidden')">Leistungen</a>
+    <a class="block text-sm font-bold uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-colors py-2" href="#ueber-uns" onclick="document.getElementById('mobileMenu').classList.add('hidden')">Über uns</a>
+    <a class="block text-sm font-bold uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-colors py-2" href="#referenzen" onclick="document.getElementById('mobileMenu').classList.add('hidden')">Referenzen</a>
+    <a class="block text-sm font-bold uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-colors py-2" href="#einsatzgebiet" onclick="document.getElementById('mobileMenu').classList.add('hidden')">Einsatzgebiet</a>
+    <a class="block text-sm font-bold uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-colors py-2" href="#kontakt" onclick="document.getElementById('mobileMenu').classList.add('hidden')">Kontakt</a>
+</div>
+</nav>
+
+<!-- Hero Section with Video Background -->
+<section class="pt-28 sm:pt-40 pb-20 sm:pb-24 relative overflow-hidden min-h-[90vh] flex items-center">
+<!-- Video Background -->
+<div class="absolute inset-0 z-0">
+    <video autoplay muted loop playsinline class="w-full h-full object-cover" poster="">
+        <source src="assets/video-header-neu.mp4" type="video/mp4">
+    </video>
+    <div class="absolute inset-0 bg-gradient-to-r from-background/80 via-background/60 to-transparent"></div>
+    <div class="absolute inset-0 bg-black/25"></div>
+</div>
+<div class="max-w-screen-2xl mx-auto px-4 sm:px-6 relative z-10 w-full">
+    <div class="max-w-3xl">
+        <span class="hero-anim-1 inline-block py-1.5 px-4 bg-secondary/10 border border-secondary/30 text-secondary text-[10px] font-bold uppercase tracking-[0.2em] mb-8 rounded-lg">Norddeutscher Handwerksmeister</span>
+        <h1 class="hero-anim-2 hero-text-shadow text-5xl sm:text-6xl md:text-8xl font-headline font-bold leading-[0.9] tracking-tight mb-8">
+            Sanieren.<br>Reinigen.<br>Rückbau.
+        </h1>
+        <div class="hero-anim-3 w-24 h-1 bg-secondary mb-10"></div>
+        <p class="hero-anim-3 hero-text-shadow-sm text-base sm:text-lg text-on-surface-variant max-w-xl mb-12 leading-relaxed">
+            Seit über 6 Jahren Ihr zuverlässiger Partner in Hamburg & Pinneberg. Ob Komplettsanierung, 24h Reinigungs-Notdienst oder Asbestsanierung nach TRGS 519. Wir liefern Festpreis-Garantie und industrielle Präzision.
+        </p>
+        <div class="hero-anim-4 flex flex-col sm:flex-row gap-4 sm:gap-6 mb-16">
+            <a class="bg-secondary text-primary px-8 sm:px-10 py-4 sm:py-5 font-bold uppercase tracking-widest text-xs text-center rounded-xl btn-glow" href="mailto:gebaeudedienstemendel@gmx.de?subject=Projektanfrage">Projekt anfragen</a>
+            <a class="border border-secondary/40 hover:border-secondary px-8 sm:px-10 py-4 sm:py-5 font-bold uppercase tracking-widest text-xs flex items-center justify-center text-center rounded-xl btn-outline-glow text-secondary" href="tel:+4916393082 92">
+                <span class="material-symbols-outlined mr-2 text-lg">call</span> Direkt-Kontakt
+            </a>
+        </div>
+        <div class="hero-anim-5 flex flex-wrap gap-6 sm:gap-8 text-[10px] font-bold uppercase tracking-[0.15em] text-on-surface-variant/60">
+            <div class="flex items-center"><span class="material-symbols-outlined text-secondary mr-2 text-base">verified</span> 6+ J. Erfahrung</div>
+            <div class="flex items-center"><span class="material-symbols-outlined text-secondary mr-2 text-base">bolt</span> 24h Angebot</div>
+            <div class="flex items-center"><span class="material-symbols-outlined text-secondary mr-2 text-base">shield</span> TRGS 519 Zert.</div>
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- USP-BAR -->
+<section class="bg-surface-container-low py-12 sm:py-16 border-y border-white/5">
+<div class="max-w-screen-2xl mx-auto px-4 sm:px-6">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12 stagger-children reveal-trigger">
+        <div class="flex flex-col items-center text-center float-anim" style="animation-delay: 0s;">
+            <span class="material-symbols-outlined text-secondary text-3xl mb-4">payments</span>
+            <span class="text-on-surface-variant text-[10px] font-bold uppercase tracking-widest">Festpreis-Garantie</span>
+        </div>
+        <div class="flex flex-col items-center text-center float-anim" style="animation-delay: 0.5s;">
+            <span class="material-symbols-outlined text-secondary text-3xl mb-4">verified_user</span>
+            <span class="text-on-surface-variant text-[10px] font-bold uppercase tracking-widest">TRGS 519 Zertifiziert</span>
+        </div>
+        <div class="flex flex-col items-center text-center float-anim" style="animation-delay: 1s;">
+            <span class="material-symbols-outlined text-secondary text-3xl mb-4">emergency</span>
+            <span class="text-on-surface-variant text-[10px] font-bold uppercase tracking-widest">24h Notdienst</span>
+        </div>
+        <div class="flex flex-col items-center text-center float-anim" style="animation-delay: 1.5s;">
+            <span class="material-symbols-outlined text-secondary text-3xl mb-4">handyman</span>
+            <span class="text-on-surface-variant text-[10px] font-bold uppercase tracking-widest">Alles aus einer Hand</span>
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- 3-PILLAR SERVICES / Kernkompetenzen -->
+<section class="py-20 sm:py-24 bg-background" id="leistungen">
+<div class="max-w-screen-2xl mx-auto px-4 sm:px-6">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 sm:mb-20 gap-8 reveal">
+        <div class="max-w-2xl">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-headline font-bold mb-6 tracking-tight">Kernkompetenzen</h2>
+            <p class="text-on-surface-variant leading-relaxed">Hochspezialisierte Dienstleistungen für anspruchsvolle Immobilienbesitzer, Hausverwaltungen und Gewerbebetriebe im norddeutschen Raum.</p>
+        </div>
+        <a class="text-secondary font-bold uppercase text-xs tracking-[0.2em] flex items-center group accent-underline pb-1 shrink-0" href="leistungen.html">
+            Alle Leistungen ansehen <span class="material-symbols-outlined ml-3 transition-transform group-hover:translate-x-2">arrow_forward</span>
+        </a>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6 sm:gap-8 stagger-children reveal-trigger">
+        <!-- Pillar A -->
+        <div class="bg-surface-container-lowest border border-white/5 hover:border-secondary/30 transition-all group card-hover rounded-xl overflow-hidden">
+            <div class="aspect-video overflow-hidden grayscale hover:grayscale-0 transition-all duration-500 img-shimmer">
+                <img alt="Sanierung" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOSJdwd5bwdcakk4SH481aOExbyjlnmUqjUYr0wCkX_RB7_7QRl7JDh8P5UnBL8oGRE4cooNNj5xvul8DkCJ5Y4BwFcDuMIsVQpWI9LHU3BHiQ1Akfb3OBuf25XmkknyNW6zR9F25YLJnPJO5Xz1LW2dOQhxMAQjMeCP-oNvT8grig8VBijvjTiri9TWjoIZywikd4CktQPplOO3TpXd8cHXYV-aM5JuQLZaV4lYFFUcEbOfDgqTxdtU3-lg4QYvkKWKZoHzC4whD_">
+            </div>
+            <div class="p-6 sm:p-8">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-lg sm:text-xl font-headline font-bold">Sanierung & Handwerk</h3>
+                    <span class="material-symbols-outlined text-secondary">architecture</span>
+                </div>
+                <p class="text-sm text-on-surface-variant mb-8 leading-relaxed">Hochwertige Instandsetzung Ihrer Immobilie. Wir koordinieren alle Gewerke für ein schlüsselfertiges Ergebnis mit Fokus auf Langlebigkeit und Wertsteigerung.</p>
+                <ul class="space-y-4 mb-8 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant/80">
+                    <li class="flex items-start"><span class="material-symbols-outlined text-secondary mr-3 text-sm">check</span> Dach & Isolierung</li>
+                    <li class="flex items-start"><span class="material-symbols-outlined text-secondary mr-3 text-sm">check</span> Sanitär & Fliesen</li>
+                    <li class="flex items-start"><span class="material-symbols-outlined text-secondary mr-3 text-sm">check</span> Trockenbau & Putz</li>
+                    <li class="flex items-start"><span class="material-symbols-outlined text-secondary mr-3 text-sm">check</span> Komplettsanierung</li>
+                </ul>
+            </div>
+        </div>
+        <!-- Pillar B -->
+        <div class="bg-surface-container-lowest border border-white/5 hover:border-secondary/30 transition-all group card-hover rounded-xl overflow-hidden">
+            <div class="aspect-video overflow-hidden grayscale hover:grayscale-0 transition-all duration-500 img-shimmer">
+                <img alt="Reinigung" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrl0TOx0RCVB_FSJR6bSoAi473cIG4wqqMcCNEMP6ktURG8LrpS1jgzbzDv87PfIOAQuxjojUwOMcul8Rpxdd1E74Iy7QmuNEylyB-12pa2nZJPIz_sey87zZjUspYJDPfZCukw4GS_NS-FVpdVb4EeQFEKlFQLAlMj8_MkYCULa_KKJ62rUeke6tJMs_bHJZzDm5_3kTXpwI8sANQdoEQHcL0lr_MssofbaGS7nUWsKX3FWs9cB6IS0JKUVbL1e1XfjxGSPtrcLrC">
+            </div>
+            <div class="p-6 sm:p-8">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-lg sm:text-xl font-headline font-bold">Reinigung & Service</h3>
+                    <span class="material-symbols-outlined text-secondary">cleaning_services</span>
+                </div>
+                <p class="text-sm text-on-surface-variant mb-8 leading-relaxed">Professionelle Reinigungsdienstleistungen für Gewerbe und Privat. Unser Team sorgt für makellose Ergebnisse, ob im täglichen Betrieb oder bei anspruchsvollen Sonderfällen.</p>
+                <ul class="space-y-4 mb-8 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant/80">
+                    <li class="flex items-start"><span class="material-symbols-outlined text-secondary mr-3 text-sm">check</span> Glas- & Fassadenreinigung</li>
+                    <li class="flex items-start"><span class="material-symbols-outlined text-secondary mr-3 text-sm">check</span> Treppenhausservice</li>
+                    <li class="flex items-start"><span class="material-symbols-outlined text-secondary mr-3 text-sm">check</span> Bauendreinigung</li>
+                    <li class="flex items-start"><span class="material-symbols-outlined text-secondary mr-3 text-sm">check</span> 24h Notfallreinigung</li>
+                </ul>
+            </div>
+        </div>
+        <!-- Pillar C -->
+        <div class="bg-surface-container-lowest border border-white/5 hover:border-secondary/30 transition-all group card-hover rounded-xl overflow-hidden">
+            <div class="aspect-video overflow-hidden grayscale hover:grayscale-0 transition-all duration-500 img-shimmer">
+                <img alt="Rückbau" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCA-w4iPNUUpwtIMBf_rp0VqW4AM12ys6yL7O-TDD1UN656trEZsawrSD71sB423FiXcj_Esp5Xb34b9eAm5mpGSSzeZESYRdoW6k7BZo2IfvNlPBrYzwu2dF2tDkaSpZzpjIyIa5U5sqwaVDZFHjGCC1XDS-CBpQn2oMBs40nDqavdedR_XSTLRAP-x_CndGTDish-l4V6g7yP69qDTS3-MB8JwRF3hDsSe3tBjsc43sD32EaYnnz7iTuHnb6S9hhqx3utAmI88SA7">
+            </div>
+            <div class="p-6 sm:p-8">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-lg sm:text-xl font-headline font-bold">Rückbau & Entsorgung</h3>
+                    <span class="material-symbols-outlined text-secondary">layers_clear</span>
+                </div>
+                <p class="text-sm text-on-surface-variant mb-8 leading-relaxed">Systematischer Rückbau und fachgerechte Entkernung. Wir schaffen Platz für Neues, mit strengster Einhaltung aller Sicherheits- und Umweltstandards.</p>
+                <ul class="space-y-4 mb-8 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant/80">
+                    <!-- TRGS 519 hervorgehoben -->
+                    <li class="flex items-center bg-secondary/10 border border-secondary/30 rounded-lg px-3 py-2.5">
+                        <span class="material-symbols-outlined text-secondary mr-3 text-base" style="font-variation-settings: 'FILL' 1;">verified</span>
+                        <span class="font-black text-secondary text-xs tracking-widest">Asbestsanierung TRGS 519</span>
+                    </li>
+                    <li class="flex items-start"><span class="material-symbols-outlined text-secondary mr-3 text-sm">check</span> Abbruch & Entkernung</li>
+                    <li class="flex items-start"><span class="material-symbols-outlined text-secondary mr-3 text-sm">check</span> Haushaltsauflösung</li>
+                    <li class="flex items-start"><span class="material-symbols-outlined text-secondary mr-3 text-sm">check</span> Zert. Entsorgung</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- TRGS 519 HIGHLIGHT -->
+<section class="bg-surface-container text-white overflow-hidden border-y border-white/5">
+<div class="grid lg:grid-cols-2 items-center">
+    <div class="p-8 sm:p-12 md:p-24 reveal-left">
+        <div class="inline-flex items-center space-x-3 text-secondary mb-8">
+            <span class="material-symbols-outlined text-4xl">gpp_maybe</span>
+            <span class="text-xs font-bold uppercase tracking-[0.2em]">Industrieller Standard</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-headline font-bold mb-10 leading-tight">Zertifizierte Asbestsanierung nach TRGS 519</h2>
+        <p class="text-on-surface-variant text-base sm:text-lg leading-relaxed mb-12">
+            Asbest ist eine unsichtbare Gefahr. Wir verfügen über die staatliche Anerkennung zur Durchführung von Abbruch-, Sanierungs- oder Instandhaltungsarbeiten an asbesthaltigen Gefahrstoffen. Vertrauen Sie auf zertifizierte Expertise und maximalen Schutz.
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-12">
+            <div class="border-l border-secondary/50 pl-6">
+                <h4 class="font-bold mb-3 uppercase text-[10px] tracking-widest text-secondary">Staatlich Geprüft</h4>
+                <p class="text-sm text-on-surface-variant">Einhaltung aller gesetzlichen Vorschriften und Meldepflichten.</p>
+            </div>
+            <div class="border-l border-secondary/50 pl-6">
+                <h4 class="font-bold mb-3 uppercase text-[10px] tracking-widest text-secondary">Sichere Entsorgung</h4>
+                <p class="text-sm text-on-surface-variant">Lückenloser Nachweisweg der Gefahrstoff-Entsorgung.</p>
+            </div>
+        </div>
+        <a class="inline-block bg-secondary text-primary px-10 sm:px-12 py-4 sm:py-5 font-bold uppercase tracking-widest text-xs rounded-xl btn-glow" href="#kontakt">Jetzt Beraten lassen</a>
+    </div>
+    <div class="h-64 sm:h-80 lg:h-full lg:min-h-[500px] grayscale brightness-50 contrast-125 reveal-right">
+        <img class="w-full h-full object-cover" alt="Worker in protective suit" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLEz8ttY6hH20KC2NuDXK8j-Z5QgBt1LArLzm9jOem0rPXKJQ_xLoFTh9gn1U047g2VYjqh4I_9fs4OyvRMTP7Sp1k6liDt6UnjGsMUv5HMtcaE8smZBWlNRyiJG7OuRVn9zoSbeNcrpghyLZDWpVe-sgv1aUSIOcteEdN4PzteNQpkcJE_mzatQQ_sKqHA2n5kzIXrD7QdsL1BC95C4AzyMQRlkgYlHZKty9iL1Mzj_yDoTEcgikde6earZbfuK1a0UScoV7Fi94P">
+    </div>
+</div>
+</section>
+
+<!-- ABLAUF / Prozessablauf -->
+<section class="py-20 sm:py-24 bg-surface-container-low">
+<div class="max-w-screen-2xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-16 sm:mb-20 reveal">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-headline font-bold mb-6 tracking-tight">Prozessablauf</h2>
+        <div class="w-20 h-1 bg-secondary mx-auto line-draw"></div>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12 relative stagger-children reveal-trigger">
+        <div class="relative group process-step cursor-default">
+            <div class="step-number text-7xl sm:text-8xl font-black text-secondary/5 absolute -top-8 sm:-top-10 left-0 select-none">01</div>
+            <div class="step-content relative pt-10">
+                <h3 class="text-base sm:text-lg font-bold mb-4 uppercase tracking-wider text-secondary">Anfrage</h3>
+                <p class="text-on-surface-variant text-xs sm:text-sm leading-relaxed">Senden Sie uns Ihre Projektbeschreibung oder rufen Sie uns direkt an.</p>
+            </div>
+        </div>
+        <div class="relative group process-step cursor-default">
+            <div class="step-number text-7xl sm:text-8xl font-black text-secondary/5 absolute -top-8 sm:-top-10 left-0 select-none">02</div>
+            <div class="step-content relative pt-10">
+                <h3 class="text-base sm:text-lg font-bold mb-4 uppercase tracking-wider text-secondary">Besichtigung</h3>
+                <p class="text-on-surface-variant text-xs sm:text-sm leading-relaxed">Wir begutachten das Objekt vor Ort – kostenlos und unverbindlich.</p>
+            </div>
+        </div>
+        <div class="relative group process-step cursor-default">
+            <div class="step-number text-7xl sm:text-8xl font-black text-secondary/5 absolute -top-8 sm:-top-10 left-0 select-none">03</div>
+            <div class="step-content relative pt-10">
+                <h3 class="text-base sm:text-lg font-bold mb-4 uppercase tracking-wider text-secondary">Angebot</h3>
+                <p class="text-on-surface-variant text-xs sm:text-sm leading-relaxed">Sie erhalten binnen 24h ein transparentes Festpreis-Angebot.</p>
+            </div>
+        </div>
+        <div class="relative group process-step cursor-default">
+            <div class="step-number text-7xl sm:text-8xl font-black text-secondary/5 absolute -top-8 sm:-top-10 left-0 select-none">04</div>
+            <div class="step-content relative pt-10">
+                <h3 class="text-base sm:text-lg font-bold mb-4 uppercase tracking-wider text-secondary">Umsetzung</h3>
+                <p class="text-on-surface-variant text-xs sm:text-sm leading-relaxed">Termingerechte und saubere Umsetzung durch unser Experten-Team.</p>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- REFERENZEN -->
+<section class="py-20 sm:py-24 bg-background" id="referenzen">
+<div class="max-w-screen-2xl mx-auto px-4 sm:px-6">
+    <h2 class="text-3xl sm:text-4xl md:text-5xl font-headline font-bold mb-12 sm:mb-16 tracking-tight reveal">Referenz-Projekte</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 auto-rows-[250px] sm:auto-rows-[350px] stagger-children reveal-trigger">
+        <div class="md:col-span-2 md:row-span-2 relative overflow-hidden group industrial-border rounded-xl">
+            <img class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105 opacity-80" alt="Luxury apartment renovation" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOSJdwd5bwdcakk4SH481aOExbyjlnmUqjUYr0wCkX_RB7_7QRl7JDh8P5UnBL8oGRE4cooNNj5xvul8DkCJ5Y4BwFcDuMIsVQpWI9LHU3BHiQ1Akfb3OBuf25XmkknyNW6zR9F25YLJnPJO5Xz1LW2dOQhxMAQjMeCP-oNvT8grig8VBijvjTiri9TWjoIZywikd4CktQPplOO3TpXd8cHXYV-aM5JuQLZaV4lYFFUcEbOfDgqTxdtU3-lg4QYvkKWKZoHzC4whD_">
+            <div class="absolute inset-0 bg-gradient-to-t from-primary to-transparent p-8 sm:p-10 flex flex-col justify-end">
+                <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-secondary mb-3">Sanierung</p>
+                <h4 class="text-white text-xl sm:text-3xl font-headline font-bold">Kernsanierung Penthouse, Hamburg-Hafencity</h4>
+            </div>
+        </div>
+        <div class="relative overflow-hidden group industrial-border rounded-xl">
+            <img class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105 opacity-80" alt="Building cleaning" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrl0TOx0RCVB_FSJR6bSoAi473cIG4wqqMcCNEMP6ktURG8LrpS1jgzbzDv87PfIOAQuxjojUwOMcul8Rpxdd1E74Iy7QmuNEylyB-12pa2nZJPIz_sey87zZjUspYJDPfZCukw4GS_NS-FVpdVb4EeQFEKlFQLAlMj8_MkYCULa_KKJ62rUeke6tJMs_bHJZzDm5_3kTXpwI8sANQdoEQHcL0lr_MssofbaGS7nUWsKX3FWs9cB6IS0JKUVbL1e1XfjxGSPtrcLrC">
+            <div class="absolute inset-0 bg-gradient-to-t from-primary to-transparent p-6 sm:p-8 flex flex-col justify-end">
+                <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-secondary mb-2">Reinigung</p>
+                <h4 class="text-white text-lg sm:text-xl font-headline font-bold">Glasreinigung Bürokomplex</h4>
+            </div>
+        </div>
+        <div class="relative overflow-hidden group industrial-border rounded-xl">
+            <img class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105 opacity-80" alt="Demolition site" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCA-w4iPNUUpwtIMBf_rp0VqW4AM12ys6yL7O-TDD1UN656trEZsawrSD71sB423FiXcj_Esp5Xb34b9eAm5mpGSSzeZESYRdoW6k7BZo2IfvNlPBrYzwu2dF2tDkaSpZzpjIyIa5U5sqwaVDZFHjGCC1XDS-CBpQn2oMBs40nDqavdedR_XSTLRAP-x_CndGTDish-l4V6g7yP69qDTS3-MB8JwRF3hDsSe3tBjsc43sD32EaYnnz7iTuHnb6S9hhqx3utAmI88SA7">
+            <div class="absolute inset-0 bg-gradient-to-t from-primary to-transparent p-6 sm:p-8 flex flex-col justify-end">
+                <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-secondary mb-2">Rückbau</p>
+                <h4 class="text-white text-lg sm:text-xl font-headline font-bold">Ladenrückbau, Pinneberg Zentrum</h4>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- ZIELGRUPPEN -->
+<section class="py-20 sm:py-24 bg-surface-container-low border-y border-white/5" id="ueber-uns">
+<div class="max-w-screen-2xl mx-auto px-4 sm:px-6">
+    <div class="grid md:grid-cols-2 gap-8 sm:gap-12">
+        <div class="bg-primary p-8 sm:p-12 industrial-border card-hover rounded-xl reveal-left">
+            <h3 class="text-2xl sm:text-3xl font-headline font-bold mb-8 text-white">Privatobjekte</h3>
+            <p class="text-on-surface-variant mb-10 leading-relaxed">Wir verwandeln Ihr Zuhause in einen Wohlfühlort. Von der Badsanierung bis zur kompletten Entkernung – zuverlässig, sauber und diskret.</p>
+            <ul class="space-y-5 mb-12">
+                <li class="flex items-center text-xs font-bold uppercase tracking-widest text-on-surface-variant"><span class="material-symbols-outlined text-secondary mr-3 text-lg">check_circle</span> Haus- & Wohnungssanierung</li>
+                <li class="flex items-center text-xs font-bold uppercase tracking-widest text-on-surface-variant"><span class="material-symbols-outlined text-secondary mr-3 text-lg">check_circle</span> Notfall-Reinigungen</li>
+                <li class="flex items-center text-xs font-bold uppercase tracking-widest text-on-surface-variant"><span class="material-symbols-outlined text-secondary mr-3 text-lg">check_circle</span> Entrümpelungen</li>
+            </ul>
+            <a class="inline-block bg-secondary text-primary px-8 py-4 font-bold uppercase text-[10px] tracking-[0.2em] rounded-xl btn-glow" href="#kontakt">Projekt anfragen</a>
+        </div>
+        <div class="bg-surface-container-low p-8 sm:p-12 border border-secondary/20 shadow-xl card-hover rounded-xl reveal-right">
+            <h3 class="text-2xl sm:text-3xl font-headline font-bold mb-8 text-white">Gewerbe & Portfolio</h3>
+            <p class="text-on-surface-variant mb-10 leading-relaxed">Skalierbare Lösungen für Asset-Manager und Unternehmen. Wir sorgen für Werterhalt und Betriebssicherheit Ihrer Liegenschaften.</p>
+            <ul class="space-y-5 mb-12">
+                <li class="flex items-center text-xs font-bold uppercase tracking-widest text-secondary"><span class="material-symbols-outlined mr-3 text-lg">verified</span> Rahmenverträge Reinigung</li>
+                <li class="flex items-center text-xs font-bold uppercase tracking-widest text-secondary"><span class="material-symbols-outlined mr-3 text-lg">verified</span> Fachgerechte Entkernungen</li>
+                <li class="flex items-center text-xs font-bold uppercase tracking-widest text-secondary"><span class="material-symbols-outlined mr-3 text-lg">verified</span> 24h Facility Management</li>
+            </ul>
+            <a class="inline-block bg-secondary text-primary px-8 py-4 font-bold uppercase text-[10px] tracking-[0.2em] rounded-xl btn-glow" href="#kontakt">B2B Kontakt</a>
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- EINSATZGEBIET -->
+<section class="py-20 sm:py-24 bg-background" id="einsatzgebiet">
+<div class="max-w-screen-2xl mx-auto px-4 sm:px-6">
+    <div class="grid lg:grid-cols-2 gap-12 sm:gap-20 items-start">
+        <div class="reveal-left">
+            <h2 class="text-3xl sm:text-4xl font-headline font-bold mb-8">Einsatzgebiet</h2>
+            <p class="text-on-surface-variant mb-12 text-base sm:text-lg">Wir sind regional verwurzelt und schnell vor Ort. Unser Team bedient das gesamte Stadtgebiet Hamburg sowie den Kreis Pinneberg und Umgebung.</p>
+            <div class="grid grid-cols-2 gap-x-8 sm:gap-x-16 gap-y-8">
+                <div>
+                    <h4 class="font-bold text-secondary uppercase text-[10px] tracking-[0.2em] mb-6">Metropolregion Hamburg</h4>
+                    <ul class="text-sm space-y-4 font-medium text-on-surface-variant">
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-secondary/30 mr-3 shrink-0"></span> Eimsbüttel & Altona</li>
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-secondary/30 mr-3 shrink-0"></span> Hafencity & Mitte</li>
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-secondary/30 mr-3 shrink-0"></span> Wandsbek & Nord</li>
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-secondary/30 mr-3 shrink-0"></span> Bergedorf & Harburg</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-secondary uppercase text-[10px] tracking-[0.2em] mb-6">Pinneberg & Umland</h4>
+                    <ul class="text-sm space-y-4 font-medium text-on-surface-variant">
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-secondary/30 mr-3 shrink-0"></span> Pinneberg Stadt</li>
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-secondary/30 mr-3 shrink-0"></span> Elmshorn & Quickborn</li>
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-secondary/30 mr-3 shrink-0"></span> Wedel & Schenefeld</li>
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-secondary/30 mr-3 shrink-0"></span> Halstenbek & Rellingen</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="aspect-square relative group overflow-hidden industrial-border bg-surface-container-highest rounded-xl reveal-right">
+            <img class="w-full h-full object-cover grayscale opacity-30 contrast-150" alt="Aerial map view" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPcNr_4kY5EIt46Qm8naLfG2r4YXRnHzvytSfyori8t5ZLfGxYS9y_coYhgtZ8VB3gOCvwGpfQo2COCw18mxvXJm1VXDcxuXgherhwn6gm2i8nKUfko6FMiYH6v6GLTwK5x3c3WpQ9k47WLxW1OhvSZJ37GlJfAy6HV8W89_WIvm0wrwHcgwM3orqI65KDfmX3uO9TeJ22bbVTDUP2n-RZFR_p0oZWNUWHL49Fdk2PA9XJmwS4chOcSasfGZOzGlWkFhx_jFCMhFEt">
+            <div class="absolute inset-0 flex items-center justify-center">
+                <div class="bg-primary p-8 sm:p-10 border border-secondary/40 shadow-2xl text-center rounded-xl">
+                    <span class="material-symbols-outlined text-secondary text-5xl block mb-4">location_on</span>
+                    <p class="font-headline font-bold uppercase tracking-[0.1em] text-xl sm:text-2xl text-white">Vor Ort Service</p>
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-secondary mt-2">Schnelle Anfahrt garantiert</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-20 sm:py-24 bg-surface-container-low border-t border-white/5">
+<div class="max-w-3xl mx-auto px-4 sm:px-6">
+    <h2 class="text-3xl sm:text-4xl font-headline font-bold mb-12 sm:mb-16 text-center reveal">FAQ</h2>
+    <div class="space-y-4 sm:space-y-6 stagger-children reveal-trigger">
+        <details class="bg-surface-container-lowest border border-white/5 group rounded-xl overflow-hidden">
+            <summary class="p-6 sm:p-8 font-bold text-white flex justify-between items-center cursor-pointer uppercase tracking-wider text-xs sm:text-sm list-none">
+                Wie schnell erhalte ich ein Angebot?
+                <span class="material-symbols-outlined text-secondary transition-transform group-open:rotate-45">add</span>
+            </summary>
+            <div class="px-6 sm:px-8 pb-6 sm:pb-8">
+                <p class="text-on-surface-variant text-sm leading-relaxed">In der Regel erhalten Sie nach einer Erstbesichtigung innerhalb von 24 Stunden ein detailliertes Festpreis-Angebot.</p>
+            </div>
+        </details>
+        <details class="bg-surface-container-lowest border border-white/5 group rounded-xl overflow-hidden">
+            <summary class="p-6 sm:p-8 font-bold text-white flex justify-between items-center cursor-pointer uppercase tracking-wider text-xs sm:text-sm list-none">
+                Führen Sie Asbestsanierungen selbst durch?
+                <span class="material-symbols-outlined text-secondary transition-transform group-open:rotate-45">add</span>
+            </summary>
+            <div class="px-6 sm:px-8 pb-6 sm:pb-8">
+                <p class="text-on-surface-variant text-sm leading-relaxed">Ja, wir sind nach TRGS 519 zertifiziert und führen alle Arbeiten mit eigenem Fachpersonal und speziellem Equipment durch.</p>
+            </div>
+        </details>
+        <details class="bg-surface-container-lowest border border-white/5 group rounded-xl overflow-hidden">
+            <summary class="p-6 sm:p-8 font-bold text-white flex justify-between items-center cursor-pointer uppercase tracking-wider text-xs sm:text-sm list-none">
+                Bieten Sie auch kleine Reparaturen an?
+                <span class="material-symbols-outlined text-secondary transition-transform group-open:rotate-45">add</span>
+            </summary>
+            <div class="px-6 sm:px-8 pb-6 sm:pb-8">
+                <p class="text-on-surface-variant text-sm leading-relaxed">Absolut. Ob der Austausch einer Fliese oder eine komplette Entkernung – wir behandeln jedes Projekt mit der gleichen industriellen Sorgfalt.</p>
+            </div>
+        </details>
+    </div>
+</div>
+</section>
+
+<!-- KONTAKT SECTION -->
+<section class="py-20 sm:py-24 bg-background" id="kontakt">
+<div class="max-w-screen-2xl mx-auto px-4 sm:px-6">
+    <div class="grid lg:grid-cols-2 gap-12 sm:gap-24">
+        <div class="reveal-left">
+            <h2 class="text-4xl sm:text-5xl md:text-6xl font-headline font-bold mb-10 tracking-tight text-white leading-[0.9]">Starten Sie Ihr<br><span class="text-secondary">Bauvorhaben.</span></h2>
+            <p class="text-on-surface-variant text-base sm:text-lg mb-12 max-w-md">Kontaktieren Sie uns für ein unverbindliches Gespräch. Wir freuen uns auf Ihr Projekt.</p>
+            <div class="space-y-10 mb-16">
+                <div class="flex items-start">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 bg-secondary flex items-center justify-center text-primary mr-6 sm:mr-8 rounded-lg shrink-0">
+                        <span class="material-symbols-outlined text-xl sm:text-2xl">call</span>
+                    </div>
+                    <div>
+                        <h4 class="text-[10px] font-bold uppercase tracking-[0.2em] text-secondary mb-2">Telefonische Beratung</h4>
+                        <a href="tel:+491639308292" class="text-xl sm:text-2xl font-bold text-white hover:text-secondary transition-colors">0163 930 82 92</a>
+                        <p class="text-xs text-on-surface-variant mt-1">Mo - Sa: 07:00 - 22:00 Uhr</p>
+                    </div>
+                </div>
+                <div class="flex items-start">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 bg-white/5 border border-white/10 flex items-center justify-center text-secondary mr-6 sm:mr-8 rounded-lg shrink-0">
+                        <span class="material-symbols-outlined text-xl sm:text-2xl">mail</span>
+                    </div>
+                    <div>
+                        <h4 class="text-[10px] font-bold uppercase tracking-[0.2em] text-secondary mb-2">E-Mail Anfrage</h4>
+                        <a href="mailto:gebaeudedienstemendel@gmx.de" class="text-xl sm:text-2xl font-bold text-white hover:text-secondary transition-colors break-all">gebaeudedienstemendel@gmx.de</a>
+                    </div>
+                </div>
+            </div>
+            <div class="p-8 sm:p-10 bg-surface-container-low border border-secondary/20 industrial-border rounded-xl">
+                <div class="flex items-center space-x-5 mb-6">
+                    <div class="flex text-secondary gap-1">
+                        <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+                    </div>
+                    <span class="font-bold text-sm tracking-tight">5.0 auf Google</span>
+                </div>
+                <div class="flex gap-8 opacity-60 grayscale brightness-200">
+                    <img class="h-10 w-auto" alt="Craft guild logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-ZC-2u4Q0_Q23TJ40TdGfHSlzM4LjAvAqsu7d41MZ7YykDXtwZFRA-T3dgY6RoTVoRCDkyRoWJI5wCr013qxpH2laDyqkO8txmiLJaH1UmP6imzyl7gu6YMIHAAbbhHg_PuGWsQWX7vB2ri_s8hysGbKjcBGukMbxA8EjRHu-Tj8NOOz5cqiiB-I3d7hZzH-IpuOdHIa25hmtPEHZWLRW3AFMe3IOUUQg_6n4xpFqIaXjPs7c9IoTC72Y0uzV2rXAMEvsPSHv1aDQ">
+                    <img class="h-10 w-auto" alt="Insurance trust badge" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBambiz68KwEXUyCELQaZL3hFEUpfbQF5HUm793u37r1tHK_mh6bBCyqEbs5NRCmuwj065jiiJ_vkQfm3vCRgrGPHjjbfjWEXwrlLCfr01dhYn16IuJPfGAkg6qecKeqA1funCHeVxd79r5xaZG6tF7MZSnZrd4r1o-SGjF0d5uaOjG1LllNfmUg2-VEOfsfjb_4etz55BJ9n2v7lYoEnsGTQiPhHKZf3xYulquve4lsT-UEGWGzi1elvxZR1Ya0z6aoh8sps4xOOpb">
+                </div>
+            </div>
+        </div>
+        <div class="bg-surface-container-low p-8 sm:p-12 border border-white/5 shadow-2xl rounded-xl reveal-right">
+            <form id="contactForm" class="space-y-6 sm:space-y-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
+                    <div>
+                        <label class="block text-[10px] font-bold uppercase tracking-widest text-secondary mb-3">Name *</label>
+                        <input id="formName" class="w-full bg-transparent border-0 border-b border-white/20 focus:ring-0 focus:border-secondary transition-all py-3 px-0 text-sm text-white rounded-none" placeholder="Name" required type="text">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold uppercase tracking-widest text-secondary mb-3">Telefon *</label>
+                        <input id="formPhone" class="w-full bg-transparent border-0 border-b border-white/20 focus:ring-0 focus:border-secondary transition-all py-3 px-0 text-sm text-white rounded-none" placeholder="Nummer" required type="tel">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-[10px] font-bold uppercase tracking-widest text-secondary mb-3">E-Mail</label>
+                    <input id="formEmail" class="w-full bg-transparent border-0 border-b border-white/20 focus:ring-0 focus:border-secondary transition-all py-3 px-0 text-sm text-white rounded-none" placeholder="E-Mail" type="email">
+                </div>
+                <div>
+                    <label class="block text-[10px] font-bold uppercase tracking-widest text-secondary mb-3">Anliegen</label>
+                    <select id="formSubject" class="w-full bg-transparent border-0 border-b border-white/20 focus:ring-0 focus:border-secondary transition-all py-3 px-0 text-sm text-white appearance-none rounded-none">
+                        <option class="bg-primary" value="">Bitte wählen...</option>
+                        <option class="bg-primary" value="Sanierung / Handwerk">Sanierung / Handwerk</option>
+                        <option class="bg-primary" value="Reinigungsservice">Reinigungsservice</option>
+                        <option class="bg-primary" value="Abbruch / Entkernung">Abbruch / Entkernung</option>
+                        <option class="bg-primary" value="Asbestsanierung (TRGS 519)">Asbestsanierung (TRGS 519)</option>
+                        <option class="bg-primary" value="Sonstiges">Sonstiges</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-[10px] font-bold uppercase tracking-widest text-secondary mb-3">Beschreibung</label>
+                    <textarea id="formMessage" class="w-full bg-transparent border-0 border-b border-white/20 focus:ring-0 focus:border-secondary transition-all py-3 px-0 text-sm text-white rounded-none" placeholder="Details zu Ihrem Vorhaben" rows="4"></textarea>
+                </div>
+                <button class="w-full bg-secondary text-primary py-4 sm:py-5 font-bold uppercase tracking-[0.2em] text-xs rounded-xl btn-glow active:scale-[0.98]" type="submit">Angebot anfordern</button>
+            </form>
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-white/5">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-16 px-4 sm:px-8 py-16 sm:py-20 max-w-screen-2xl mx-auto">
+    <div class="col-span-2 md:col-span-1">
+        <a href="index.html" class="flex items-center gap-3 mb-8">
+            <img src="assets/logo.png" alt="GDM Logo" class="h-10 w-auto">
+            <span class="text-base sm:text-lg font-bold font-headline text-secondary tracking-widest">Gebäudedienste Mendel e.K.</span>
+        </a>
+        <p class="text-sm leading-relaxed text-on-surface-variant font-medium">Industrielle Handwerks- und Reinigungsdienstleistungen für die Metropolregion Hamburg & Pinneberg.</p>
+    </div>
+    <div>
+        <h4 class="font-headline text-white text-xs font-bold uppercase tracking-[0.2em] mb-6 sm:mb-8">Leistungen</h4>
+        <ul class="space-y-3 sm:space-y-4 text-on-surface-variant text-xs font-bold uppercase tracking-widest">
+            <li><a class="hover:text-secondary transition-colors" href="leistungen.html">Sanierung</a></li>
+            <li><a class="hover:text-secondary transition-colors" href="leistungen.html">Reinigung</a></li>
+            <li><a class="hover:text-secondary transition-colors" href="leistungen.html">Rückbau</a></li>
+            <li><a class="hover:text-secondary transition-colors" href="leistungen.html">Asbest</a></li>
+        </ul>
+    </div>
+    <div>
+        <h4 class="font-headline text-white text-xs font-bold uppercase tracking-[0.2em] mb-6 sm:mb-8">Unternehmen</h4>
+        <ul class="space-y-3 sm:space-y-4 text-on-surface-variant text-xs font-bold uppercase tracking-widest">
+            <li><a class="hover:text-secondary transition-colors" href="#ueber-uns">Über uns</a></li>
+            <li><a class="hover:text-secondary transition-colors" href="#referenzen">Referenzen</a></li>
+            <li><a class="hover:text-secondary transition-colors" href="#einsatzgebiet">Einsatzgebiet</a></li>
+            <li><a class="hover:text-secondary transition-colors" href="#">Karriere</a></li>
+        </ul>
+    </div>
+    <div>
+        <h4 class="font-headline text-white text-xs font-bold uppercase tracking-[0.2em] mb-6 sm:mb-8">Rechtliches</h4>
+        <ul class="space-y-3 sm:space-y-4 text-on-surface-variant text-xs font-bold uppercase tracking-widest">
+            <li><a class="hover:text-secondary transition-colors cursor-pointer" onclick="openModal('impressumModal')">Impressum</a></li>
+            <li><a class="hover:text-secondary transition-colors cursor-pointer" onclick="openModal('datenschutzModal')">Datenschutz</a></li>
+        </ul>
+    </div>
+</div>
+<div class="border-t border-white/5 py-8 sm:py-10 px-4 sm:px-8 text-center text-[10px] font-bold uppercase tracking-[0.3em] text-on-surface-variant/40">
+    &copy; 2026 Gebäudedienste Mendel e.K. — Precision In Service.
+</div>
+</footer>
+
+<!-- BottomNavBar (Mobile) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 pb-safe bg-primary md:hidden border-t border-white/5 shadow-2xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:text-secondary w-full h-full" href="tel:+491639308292">
+    <span class="material-symbols-outlined mb-0.5 text-xl">call</span>
+    <span class="text-[9px] font-bold uppercase tracking-widest">Anrufen</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:text-secondary w-full h-full" href="https://wa.me/491639308292">
+    <span class="material-symbols-outlined mb-0.5 text-xl">chat</span>
+    <span class="text-[9px] font-bold uppercase tracking-widest">WhatsApp</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary w-full h-full" href="#kontakt">
+    <span class="material-symbols-outlined mb-0.5 text-xl">request_quote</span>
+    <span class="text-[9px] font-bold uppercase tracking-widest">Anfrage</span>
+</a>
+</nav>
+
+<!-- IMPRESSUM MODAL -->
+<div id="impressumModal" class="modal-overlay fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm flex items-start justify-center overflow-y-auto p-4 sm:p-8">
+<div class="modal-content bg-background border border-white/10 rounded-xl max-w-3xl w-full my-8 sm:my-16 relative">
+    <button onclick="closeModal('impressumModal')" class="absolute top-4 right-4 sm:top-6 sm:right-6 text-on-surface-variant hover:text-secondary transition-colors z-10">
+        <span class="material-symbols-outlined text-2xl">close</span>
+    </button>
+    <div class="p-8 sm:p-12 md:p-16">
+        <h2 class="text-3xl sm:text-4xl font-headline font-bold mb-8 text-secondary">Impressum</h2>
+        <div class="text-on-surface-variant text-sm leading-relaxed space-y-6">
+            <p class="text-xs font-bold uppercase tracking-widest text-secondary/70">gemäß §5 TMG (Telemediengesetz):</p>
+            <div>
+                <p class="font-bold text-white">Nikolaj Mendel</p>
+                <p>Bernhard-Nocht-Straße 85</p>
+                <p>20359 Hamburg</p>
+                <p>Deutschland</p>
+            </div>
+            <div>
+                <h3 class="font-bold text-white text-lg mb-3">Kontakt</h3>
+                <p>Telefon: +49 163 930 82 92 / 163 930 82 95</p>
+                <p>E-Mail: gebaeudedienstemendel@gmx.de</p>
+                <p>Internet: www.gebaeudedienste-mendel.de</p>
+            </div>
+            <p>Rechtsform des Unternehmens: e.K. (eingetragener Kaufmann)</p>
+            <div>
+                <p class="font-bold text-white">Steuer-Nr.:</p>
+                <p>Finanzamt Pinneberg, 31/055/06985</p>
+            </div>
+            <div>
+                <h3 class="font-bold text-white text-lg mb-3">Verbraucherstreitbeilegung</h3>
+                <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+            </div>
+            <div>
+                <h3 class="font-bold text-white text-lg mb-3">EU-Streitschlichtung</h3>
+                <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: ec.europa.eu/consumers/odr. Unsere E-Mail-Adresse finden Sie oben im Impressum.</p>
+            </div>
+            <div>
+                <h3 class="font-bold text-white text-lg mb-3">Haftung für Inhalte</h3>
+                <p>Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.</p>
+            </div>
+            <div>
+                <h3 class="font-bold text-white text-lg mb-3">Haftung für Links</h3>
+                <p>Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.</p>
+            </div>
+            <div>
+                <h3 class="font-bold text-white text-lg mb-3">Urheberrecht</h3>
+                <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.</p>
+            </div>
+            <p class="text-xs text-on-surface-variant/50">Quelle: e-recht24.de</p>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- DATENSCHUTZ MODAL -->
+<div id="datenschutzModal" class="modal-overlay fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm flex items-start justify-center overflow-y-auto p-4 sm:p-8">
+<div class="modal-content bg-background border border-white/10 rounded-xl max-w-3xl w-full my-8 sm:my-16 relative">
+    <button onclick="closeModal('datenschutzModal')" class="absolute top-4 right-4 sm:top-6 sm:right-6 text-on-surface-variant hover:text-secondary transition-colors z-10">
+        <span class="material-symbols-outlined text-2xl">close</span>
+    </button>
+    <div class="p-8 sm:p-12 md:p-16">
+        <h2 class="text-3xl sm:text-4xl font-headline font-bold mb-8 text-secondary">Datenschutzerklärung</h2>
+        <div class="text-on-surface-variant text-sm leading-relaxed space-y-6">
+            <div>
+                <h3 class="font-bold text-white text-lg mb-3">Allgemeiner Hinweis und Pflichtinformationen</h3>
+                <h4 class="font-bold text-white mb-2">Benennung der verantwortlichen Stelle</h4>
+                <p>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</p>
+                <div class="mt-3">
+                    <p class="font-bold text-white">Gebäudedienste Mendel e.K.</p>
+                    <p>Nikolaj Mendel</p>
+                    <p>Diesterwegstraße 34</p>
+                    <p>25421 Pinneberg</p>
+                </div>
+                <p class="mt-3">Die verantwortliche Stelle entscheidet allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z.B. Namen, Kontaktdaten o. Ä.).</p>
+            </div>
+            <div>
+                <h3 class="font-bold text-white text-lg mb-3">Widerruf Ihrer Einwilligung zur Datenverarbeitung</h3>
+                <p>Nur mit Ihrer ausdrücklichen Einwilligung sind einige Vorgänge der Datenverarbeitung möglich. Ein Widerruf Ihrer bereits erteilten Einwilligung ist jederzeit möglich. Für den Widerruf genügt eine formlose Mitteilung per E-Mail. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Datenverarbeitung bleibt vom Widerruf unberührt.</p>
+            </div>
+            <div>
+                <h3 class="font-bold text-white text-lg mb-3">Recht auf Beschwerde bei der zuständigen Aufsichtsbehörde</h3>
+                <p>Als Betroffener steht Ihnen im Falle eines datenschutzrechtlichen Verstoßes ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu. Zuständige Aufsichtsbehörde bezüglich datenschutzrechtlicher Fragen ist der Landesdatenschutzbeauftragte des Bundeslandes, in dem sich der Sitz unseres Unternehmens befindet.</p>
+            </div>
+            <div>
+                <h3 class="font-bold text-white text-lg mb-3">Recht auf Datenübertragbarkeit</h3>
+                <p>Ihnen steht das Recht zu, Daten, die wir auf Grundlage Ihrer Einwilligung oder in Erfüllung eines Vertrags automatisiert verarbeiten, an sich oder an Dritte aushändigen zu lassen. Die Bereitstellung erfolgt in einem maschinenlesbaren Format. Sofern Sie die direkte Übertragung der Daten an einen anderen Verantwortlichen verlangen, erfolgt dies nur, soweit es technisch machbar ist.</p>
+            </div>
+            <div>
+                <h3 class="font-bold text-white text-lg mb-3">Recht auf Auskunft, Berichtigung, Sperrung, Löschung</h3>
+                <p>Sie haben jederzeit im Rahmen der geltenden gesetzlichen Bestimmungen das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, Herkunft der Daten, deren Empfänger und den Zweck der Datenverarbeitung und ggf. ein Recht auf Berichtigung, Sperrung oder Löschung dieser Daten. Diesbezüglich und auch zu weiteren Fragen zum Thema personenbezogene Daten können Sie sich jederzeit über die im Impressum aufgeführten Kontaktmöglichkeiten an uns wenden.</p>
+            </div>
+            <div>
+                <h3 class="font-bold text-white text-lg mb-3">SSL- bzw. TLS-Verschlüsselung</h3>
+                <p>Aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte, die Sie an uns als Seitenbetreiber senden, nutzt unsere Website eine SSL-bzw. TLS-Verschlüsselung. Damit sind Daten, die Sie über diese Website übermitteln, für Dritte nicht mitlesbar. Sie erkennen eine verschlüsselte Verbindung an der „https://" Adresszeile Ihres Browsers und am Schloss-Symbol in der Browserzeile.</p>
+            </div>
+            <div>
+                <h3 class="font-bold text-white text-lg mb-3">Server-Log-Dateien</h3>
+                <p>In Server-Log-Dateien erhebt und speichert der Provider der Website automatisch Informationen, die Ihr Browser automatisch an uns übermittelt. Dies sind:</p>
+                <ul class="list-disc list-inside mt-2 space-y-1">
+                    <li>Besuchte Seite auf unserer Domain</li>
+                    <li>Datum und Uhrzeit der Serveranfrage</li>
+                    <li>Browsertyp und Browserversion</li>
+                    <li>Verwendetes Betriebssystem</li>
+                    <li>Referrer URL</li>
+                    <li>Hostname des zugreifenden Rechners</li>
+                    <li>IP-Adresse</li>
+                </ul>
+                <p class="mt-2">Es findet keine Zusammenführung dieser Daten mit anderen Datenquellen statt. Grundlage der Datenverarbeitung bildet Art. 6 Abs. 1 lit. b DSGVO, der die Verarbeitung von Daten zur Erfüllung eines Vertrags oder vorvertraglicher Maßnahmen gestattet.</p>
+            </div>
+            <div>
+                <h3 class="font-bold text-white text-lg mb-3">Kontaktformular</h3>
+                <p>Per Kontaktformular übermittelte Daten werden einschließlich Ihrer Kontaktdaten gespeichert, um Ihre Anfrage bearbeiten zu können oder um für Anschlussfragen bereitzustehen. Eine Weitergabe dieser Daten findet ohne Ihre Einwilligung nicht statt.</p>
+                <p class="mt-2">Die Verarbeitung der in das Kontaktformular eingegebenen Daten erfolgt ausschließlich auf Grundlage Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO). Ein Widerruf Ihrer bereits erteilten Einwilligung ist jederzeit möglich. Für den Widerruf genügt eine formlose Mitteilung per E-Mail. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Datenverarbeitungsvorgänge bleibt vom Widerruf unberührt.</p>
+                <p class="mt-2">Über das Kontaktformular übermittelte Daten verbleiben bei uns, bis Sie uns zur Löschung auffordern, Ihre Einwilligung zur Speicherung widerrufen oder keine Notwendigkeit der Datenspeicherung mehr besteht. Zwingende gesetzliche Bestimmungen – insbesondere Aufbewahrungsfristen – bleiben unberührt.</p>
+            </div>
+            <div>
+                <h3 class="font-bold text-white text-lg mb-3">Speicherdauer von Beiträgen und Kommentaren</h3>
+                <p>Beiträge und Kommentare sowie damit in Verbindung stehende Daten, wie beispielsweise IP-Adressen, werden gespeichert. Der Inhalt verbleibt auf unserer Website, bis er vollständig gelöscht wurde oder aus rechtlichen Gründen gelöscht werden musste.</p>
+                <p class="mt-2">Die Speicherung der Beiträge und Kommentare erfolgt auf Grundlage Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO). Ein Widerruf Ihrer bereits erteilten Einwilligung ist jederzeit möglich. Für den Widerruf genügt eine formlose Mitteilung per E-Mail. Die Rechtmäßigkeit bereits erfolgter Datenverarbeitungsvorgänge bleibt vom Widerruf unberührt.</p>
+            </div>
+            <div>
+                <h3 class="font-bold text-white text-lg mb-3">Cookies</h3>
+                <p>Wenn Sie auf unserer Website einen Kommentar hinterlassen, können Sie sich dafür entscheiden, Ihren Namen, Ihre E-Mail-Adresse und Ihre Website in Cookies zu speichern. Diese dienen Ihrer Bequemlichkeit, damit Sie Ihre Daten nicht erneut eingeben müssen, wenn Sie einen weiteren Kommentar hinterlassen. Diese Cookies halten ein Jahr lang.</p>
+                <p class="mt-2">Wenn Sie unsere Anmeldeseite besuchen, setzen wir ein temporäres Cookie, um festzustellen, ob Ihr Browser Cookies akzeptiert. Dieses Cookie enthält keine persönlichen Daten und wird beim Schließen Ihres Browsers verworfen.</p>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- JavaScript -->
+<script>
+// Scroll reveal animations
+function initScrollReveal() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .stagger-children, .line-draw').forEach(el => {
+        observer.observe(el);
+    });
+
+    // Also observe elements with reveal-trigger class for stagger-children
+    document.querySelectorAll('.reveal-trigger').forEach(el => {
+        const staggerObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+        staggerObserver.observe(el);
+    });
+}
+
+// Nav shrink on scroll
+function initNavShrink() {
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 80) {
+            nav.classList.add('nav-scrolled');
+        } else {
+            nav.classList.remove('nav-scrolled');
+        }
+    });
+}
+
+// Modal functions
+function openModal(id) {
+    document.getElementById(id).classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+function closeModal(id) {
+    document.getElementById(id).classList.remove('open');
+    document.body.style.overflow = '';
+}
+// Close modal on overlay click
+document.querySelectorAll('.modal-overlay').forEach(modal => {
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+    });
+});
+// Close modal on Escape
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        document.querySelectorAll('.modal-overlay.open').forEach(m => {
+            m.classList.remove('open');
+            document.body.style.overflow = '';
+        });
+    }
+});
+
+// Contact form → mailto
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('formName').value;
+    const phone = document.getElementById('formPhone').value;
+    const email = document.getElementById('formEmail').value;
+    const subject = document.getElementById('formSubject').value;
+    const message = document.getElementById('formMessage').value;
+
+    const body = [
+        'Neue Anfrage über die Website',
+        '',
+        '━━━━━━━━━━━━━━━━━━━━━━━━━',
+        '',
+        'Name: ' + name,
+        'Telefon: ' + phone,
+        'E-Mail: ' + (email || 'Nicht angegeben'),
+        'Anliegen: ' + (subject || 'Nicht angegeben'),
+        '',
+        '━━━━━━━━━━━━━━━━━━━━━━━━━',
+        '',
+        'Nachricht:',
+        message || 'Keine Beschreibung angegeben.',
+        '',
+        '━━━━━━━━━━━━━━━━━━━━━━━━━',
+        'Gesendet über: www.gebaeudedienste-mendel.de'
+    ].join('\n');
+
+    const mailtoLink = 'mailto:gebaeudedienstemendel@gmx.de'
+        + '?subject=' + encodeURIComponent('Anfrage von ' + name + ' – ' + (subject || 'Allgemein'))
+        + '&body=' + encodeURIComponent(body);
+
+    window.location.href = mailtoLink;
+});
+
+// Init
+document.addEventListener('DOMContentLoaded', () => {
+    initScrollReveal();
+    initNavShrink();
+});
+</script>
+
+</body>
+</html>
