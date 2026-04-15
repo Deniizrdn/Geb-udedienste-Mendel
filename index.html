@@ -237,6 +237,29 @@
         100% { transform: scale(1); }
     }
 
+    /* Process card number fill */
+    .process-num {
+        background: linear-gradient(to top, #A0C6D7 var(--fill, 0%), rgba(160,198,215,0.08) var(--fill, 0%));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        transition: --fill 0.05s linear;
+    }
+
+    /* Kernkompetenzen mobile swipe-in */
+    @keyframes slideInCard {
+        from { opacity: 0; transform: translateX(-30px) scale(0.95); }
+        to { opacity: 1; transform: translateX(0) scale(1); }
+    }
+    .kompetenz-card-anim {
+        opacity: 0;
+    }
+    .kompetenz-card-anim.active {
+        animation: slideInCard 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .kompetenz-card-anim:nth-child(2).active { animation-delay: 0.15s; }
+    .kompetenz-card-anim:nth-child(3).active { animation-delay: 0.3s; }
+
     /* Nav shrink on scroll */
     .nav-scrolled {
         padding-top: 0.75rem !important;
@@ -300,9 +323,9 @@
 <!-- TopNavBar -->
 <nav id="mainNav" class="fixed top-0 w-full z-50 bg-primary/90 backdrop-blur-xl border-b border-white/5 transition-all duration-300">
 <div class="flex justify-between items-center w-full px-4 sm:px-6 py-4 max-w-screen-2xl mx-auto">
-    <a href="index.html" class="flex items-center gap-3">
-        <img src="assets/logo.png" alt="GDM Logo" class="h-14 sm:h-16 w-auto" style="filter: drop-shadow(0 0 0 transparent);">
-        <span class="text-base sm:text-xl font-bold font-headline text-secondary uppercase tracking-widest hidden sm:inline">
+    <a href="index.html" class="flex items-center gap-2 sm:gap-3">
+        <img src="assets/logo.png" alt="GDM Logo" class="h-14 sm:h-16 w-auto" style="mix-blend-mode: screen;">
+        <span class="text-[11px] sm:text-xl font-bold font-headline text-secondary uppercase tracking-widest">
             Gebäudedienste Mendel e.K.
         </span>
     </a>
@@ -314,7 +337,7 @@
         <a class="text-xs font-bold uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-colors" href="#kontakt">Kontakt</a>
     </div>
     <div class="flex items-center space-x-4">
-        <a class="bg-secondary text-primary px-6 py-3 text-xs font-bold uppercase tracking-widest rounded-xl btn-glow" href="tel:+4916393082 92">
+        <a class="hidden lg:inline-flex bg-secondary text-primary px-6 py-3 text-xs font-bold uppercase tracking-widest rounded-full btn-glow" href="tel:+491639308292">
             <span class="material-symbols-outlined mr-1 text-sm align-middle">call</span> Anfrage
         </a>
         <!-- Mobile burger -->
@@ -356,15 +379,15 @@
             Seit über 6 Jahren Ihr zuverlässiger Partner in Hamburg & Pinneberg. Ob Komplettsanierung, 24h Reinigungs-Notdienst oder Asbestsanierung nach TRGS 519. Wir liefern Festpreis-Garantie und industrielle Präzision.
         </p>
         <div class="hero-anim-4 flex flex-col sm:flex-row gap-4 sm:gap-6 mb-16">
-            <a class="bg-secondary text-primary px-8 sm:px-10 py-4 sm:py-5 font-bold uppercase tracking-widest text-xs text-center rounded-xl btn-glow" href="mailto:gebaeudedienstemendel@gmx.de?subject=Projektanfrage">Projekt anfragen</a>
-            <a class="border border-secondary/40 hover:border-secondary px-8 sm:px-10 py-4 sm:py-5 font-bold uppercase tracking-widest text-xs flex items-center justify-center text-center rounded-xl btn-outline-glow text-secondary" href="tel:+4916393082 92">
+            <a class="bg-secondary text-primary px-8 sm:px-10 py-4 sm:py-5 font-bold uppercase tracking-widest text-xs text-center rounded-full btn-glow" href="mailto:gebaeudedienstemendel@gmx.de?subject=Projektanfrage">Projekt anfragen</a>
+            <a class="border border-secondary/40 hover:border-secondary px-8 sm:px-10 py-4 sm:py-5 font-bold uppercase tracking-widest text-xs flex items-center justify-center text-center rounded-full btn-outline-glow text-secondary" href="tel:+491639308292">
                 <span class="material-symbols-outlined mr-2 text-lg">call</span> Direkt-Kontakt
             </a>
         </div>
-        <div class="hero-anim-5 flex flex-wrap gap-6 sm:gap-8 text-[10px] font-bold uppercase tracking-[0.15em] text-on-surface-variant/60">
+        <div class="hero-anim-5 flex flex-wrap justify-center sm:justify-start gap-x-8 gap-y-3 text-[10px] font-bold uppercase tracking-[0.15em] text-on-surface-variant/60">
             <div class="flex items-center"><span class="material-symbols-outlined text-secondary mr-2 text-base">verified</span> 6+ J. Erfahrung</div>
             <div class="flex items-center"><span class="material-symbols-outlined text-secondary mr-2 text-base">bolt</span> 24h Angebot</div>
-            <div class="flex items-center"><span class="material-symbols-outlined text-secondary mr-2 text-base">shield</span> TRGS 519 Zert.</div>
+            <div class="flex items-center w-full sm:w-auto justify-center sm:justify-start"><span class="material-symbols-outlined text-secondary mr-2 text-base">shield</span> TRGS 519 Zert.</div>
         </div>
     </div>
 </div>
@@ -408,7 +431,7 @@
     </div>
     <div class="grid md:grid-cols-3 gap-6 sm:gap-8 stagger-children reveal-trigger">
         <!-- Pillar A -->
-        <div class="bg-surface-container-lowest border border-white/5 hover:border-secondary/30 transition-all group card-hover rounded-xl overflow-hidden">
+        <div class="bg-surface-container-lowest border border-white/5 hover:border-secondary/30 transition-all group card-hover rounded-xl overflow-hidden kompetenz-card-anim">
             <div class="aspect-video overflow-hidden grayscale hover:grayscale-0 transition-all duration-500 img-shimmer">
                 <img alt="Sanierung" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOSJdwd5bwdcakk4SH481aOExbyjlnmUqjUYr0wCkX_RB7_7QRl7JDh8P5UnBL8oGRE4cooNNj5xvul8DkCJ5Y4BwFcDuMIsVQpWI9LHU3BHiQ1Akfb3OBuf25XmkknyNW6zR9F25YLJnPJO5Xz1LW2dOQhxMAQjMeCP-oNvT8grig8VBijvjTiri9TWjoIZywikd4CktQPplOO3TpXd8cHXYV-aM5JuQLZaV4lYFFUcEbOfDgqTxdtU3-lg4QYvkKWKZoHzC4whD_">
             </div>
@@ -427,7 +450,7 @@
             </div>
         </div>
         <!-- Pillar B -->
-        <div class="bg-surface-container-lowest border border-white/5 hover:border-secondary/30 transition-all group card-hover rounded-xl overflow-hidden">
+        <div class="bg-surface-container-lowest border border-white/5 hover:border-secondary/30 transition-all group card-hover rounded-xl overflow-hidden kompetenz-card-anim">
             <div class="aspect-video overflow-hidden grayscale hover:grayscale-0 transition-all duration-500 img-shimmer">
                 <img alt="Reinigung" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrl0TOx0RCVB_FSJR6bSoAi473cIG4wqqMcCNEMP6ktURG8LrpS1jgzbzDv87PfIOAQuxjojUwOMcul8Rpxdd1E74Iy7QmuNEylyB-12pa2nZJPIz_sey87zZjUspYJDPfZCukw4GS_NS-FVpdVb4EeQFEKlFQLAlMj8_MkYCULa_KKJ62rUeke6tJMs_bHJZzDm5_3kTXpwI8sANQdoEQHcL0lr_MssofbaGS7nUWsKX3FWs9cB6IS0JKUVbL1e1XfjxGSPtrcLrC">
             </div>
@@ -446,7 +469,7 @@
             </div>
         </div>
         <!-- Pillar C -->
-        <div class="bg-surface-container-lowest border border-white/5 hover:border-secondary/30 transition-all group card-hover rounded-xl overflow-hidden">
+        <div class="bg-surface-container-lowest border border-white/5 hover:border-secondary/30 transition-all group card-hover rounded-xl overflow-hidden kompetenz-card-anim">
             <div class="aspect-video overflow-hidden grayscale hover:grayscale-0 transition-all duration-500 img-shimmer">
                 <img alt="Rückbau" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCA-w4iPNUUpwtIMBf_rp0VqW4AM12ys6yL7O-TDD1UN656trEZsawrSD71sB423FiXcj_Esp5Xb34b9eAm5mpGSSzeZESYRdoW6k7BZo2IfvNlPBrYzwu2dF2tDkaSpZzpjIyIa5U5sqwaVDZFHjGCC1XDS-CBpQn2oMBs40nDqavdedR_XSTLRAP-x_CndGTDish-l4V6g7yP69qDTS3-MB8JwRF3hDsSe3tBjsc43sD32EaYnnz7iTuHnb6S9hhqx3utAmI88SA7">
             </div>
@@ -494,7 +517,7 @@
                 <p class="text-sm text-on-surface-variant">Lückenloser Nachweisweg der Gefahrstoff-Entsorgung.</p>
             </div>
         </div>
-        <a class="inline-block bg-secondary text-primary px-10 sm:px-12 py-4 sm:py-5 font-bold uppercase tracking-widest text-xs rounded-xl btn-glow" href="#kontakt">Jetzt Beraten lassen</a>
+        <a class="inline-block bg-secondary text-primary px-10 sm:px-12 py-4 sm:py-5 font-bold uppercase tracking-widest text-xs rounded-full btn-glow" href="#kontakt">Jetzt Beraten lassen</a>
     </div>
     <div class="h-64 sm:h-80 lg:h-full lg:min-h-[500px] grayscale brightness-50 contrast-125 reveal-right">
         <img class="w-full h-full object-cover" alt="Worker in protective suit" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLEz8ttY6hH20KC2NuDXK8j-Z5QgBt1LArLzm9jOem0rPXKJQ_xLoFTh9gn1U047g2VYjqh4I_9fs4OyvRMTP7Sp1k6liDt6UnjGsMUv5HMtcaE8smZBWlNRyiJG7OuRVn9zoSbeNcrpghyLZDWpVe-sgv1aUSIOcteEdN4PzteNQpkcJE_mzatQQ_sKqHA2n5kzIXrD7QdsL1BC95C4AzyMQRlkgYlHZKty9iL1Mzj_yDoTEcgikde6earZbfuK1a0UScoV7Fi94P">
@@ -509,33 +532,59 @@
         <h2 class="text-3xl sm:text-4xl md:text-5xl font-headline font-bold mb-6 tracking-tight">Prozessablauf</h2>
         <div class="w-20 h-1 bg-secondary mx-auto line-draw"></div>
     </div>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12 relative stagger-children reveal-trigger">
+    <!-- Desktop: grid layout -->
+    <div class="hidden md:grid md:grid-cols-4 gap-8 sm:gap-12 relative stagger-children reveal-trigger">
         <div class="relative group process-step cursor-default">
-            <div class="step-number text-7xl sm:text-8xl font-black text-secondary/5 absolute -top-8 sm:-top-10 left-0 select-none">01</div>
+            <div class="step-number text-8xl font-black text-secondary/5 absolute -top-10 left-0 select-none">01</div>
             <div class="step-content relative pt-10">
-                <h3 class="text-base sm:text-lg font-bold mb-4 uppercase tracking-wider text-secondary">Anfrage</h3>
-                <p class="text-on-surface-variant text-xs sm:text-sm leading-relaxed">Senden Sie uns Ihre Projektbeschreibung oder rufen Sie uns direkt an.</p>
+                <h3 class="text-lg font-bold mb-4 uppercase tracking-wider text-secondary">Anfrage</h3>
+                <p class="text-on-surface-variant text-sm leading-relaxed">Senden Sie uns Ihre Projektbeschreibung oder rufen Sie uns direkt an.</p>
             </div>
         </div>
         <div class="relative group process-step cursor-default">
-            <div class="step-number text-7xl sm:text-8xl font-black text-secondary/5 absolute -top-8 sm:-top-10 left-0 select-none">02</div>
+            <div class="step-number text-8xl font-black text-secondary/5 absolute -top-10 left-0 select-none">02</div>
             <div class="step-content relative pt-10">
-                <h3 class="text-base sm:text-lg font-bold mb-4 uppercase tracking-wider text-secondary">Besichtigung</h3>
-                <p class="text-on-surface-variant text-xs sm:text-sm leading-relaxed">Wir begutachten das Objekt vor Ort – kostenlos und unverbindlich.</p>
+                <h3 class="text-lg font-bold mb-4 uppercase tracking-wider text-secondary">Besichtigung</h3>
+                <p class="text-on-surface-variant text-sm leading-relaxed">Wir begutachten das Objekt vor Ort – kostenlos und unverbindlich.</p>
             </div>
         </div>
         <div class="relative group process-step cursor-default">
-            <div class="step-number text-7xl sm:text-8xl font-black text-secondary/5 absolute -top-8 sm:-top-10 left-0 select-none">03</div>
+            <div class="step-number text-8xl font-black text-secondary/5 absolute -top-10 left-0 select-none">03</div>
             <div class="step-content relative pt-10">
-                <h3 class="text-base sm:text-lg font-bold mb-4 uppercase tracking-wider text-secondary">Angebot</h3>
-                <p class="text-on-surface-variant text-xs sm:text-sm leading-relaxed">Sie erhalten binnen 24h ein transparentes Festpreis-Angebot.</p>
+                <h3 class="text-lg font-bold mb-4 uppercase tracking-wider text-secondary">Angebot</h3>
+                <p class="text-on-surface-variant text-sm leading-relaxed">Sie erhalten binnen 24h ein transparentes Festpreis-Angebot.</p>
             </div>
         </div>
         <div class="relative group process-step cursor-default">
-            <div class="step-number text-7xl sm:text-8xl font-black text-secondary/5 absolute -top-8 sm:-top-10 left-0 select-none">04</div>
+            <div class="step-number text-8xl font-black text-secondary/5 absolute -top-10 left-0 select-none">04</div>
             <div class="step-content relative pt-10">
-                <h3 class="text-base sm:text-lg font-bold mb-4 uppercase tracking-wider text-secondary">Umsetzung</h3>
-                <p class="text-on-surface-variant text-xs sm:text-sm leading-relaxed">Termingerechte und saubere Umsetzung durch unser Experten-Team.</p>
+                <h3 class="text-lg font-bold mb-4 uppercase tracking-wider text-secondary">Umsetzung</h3>
+                <p class="text-on-surface-variant text-sm leading-relaxed">Termingerechte und saubere Umsetzung durch unser Experten-Team.</p>
+            </div>
+        </div>
+    </div>
+    <!-- Mobile: stacking cards with scroll-fill numbers -->
+    <div id="processCards" class="md:hidden relative" style="height: 1600px;">
+        <div class="sticky top-28 space-y-0">
+            <div class="process-card bg-surface-container border border-white/10 rounded-2xl p-8 shadow-2xl transition-all duration-300" data-step="0">
+                <div class="process-num text-7xl font-black font-headline mb-4 leading-none" data-fill="0">01</div>
+                <h3 class="text-lg font-bold mb-3 uppercase tracking-wider text-secondary">Anfrage</h3>
+                <p class="text-on-surface-variant text-sm leading-relaxed">Senden Sie uns Ihre Projektbeschreibung oder rufen Sie uns direkt an.</p>
+            </div>
+            <div class="process-card bg-surface-container border border-white/10 rounded-2xl p-8 shadow-2xl transition-all duration-300" data-step="1" style="opacity:0; transform: translateY(40px);">
+                <div class="process-num text-7xl font-black font-headline mb-4 leading-none" data-fill="0">02</div>
+                <h3 class="text-lg font-bold mb-3 uppercase tracking-wider text-secondary">Besichtigung</h3>
+                <p class="text-on-surface-variant text-sm leading-relaxed">Wir begutachten das Objekt vor Ort – kostenlos und unverbindlich.</p>
+            </div>
+            <div class="process-card bg-surface-container border border-white/10 rounded-2xl p-8 shadow-2xl transition-all duration-300" data-step="2" style="opacity:0; transform: translateY(40px);">
+                <div class="process-num text-7xl font-black font-headline mb-4 leading-none" data-fill="0">03</div>
+                <h3 class="text-lg font-bold mb-3 uppercase tracking-wider text-secondary">Angebot</h3>
+                <p class="text-on-surface-variant text-sm leading-relaxed">Sie erhalten binnen 24h ein transparentes Festpreis-Angebot.</p>
+            </div>
+            <div class="process-card bg-surface-container border border-white/10 rounded-2xl p-8 shadow-2xl transition-all duration-300" data-step="3" style="opacity:0; transform: translateY(40px);">
+                <div class="process-num text-7xl font-black font-headline mb-4 leading-none" data-fill="0">04</div>
+                <h3 class="text-lg font-bold mb-3 uppercase tracking-wider text-secondary">Umsetzung</h3>
+                <p class="text-on-surface-variant text-sm leading-relaxed">Termingerechte und saubere Umsetzung durch unser Experten-Team.</p>
             </div>
         </div>
     </div>
@@ -584,7 +633,7 @@
                 <li class="flex items-center text-xs font-bold uppercase tracking-widest text-on-surface-variant"><span class="material-symbols-outlined text-secondary mr-3 text-lg">check_circle</span> Notfall-Reinigungen</li>
                 <li class="flex items-center text-xs font-bold uppercase tracking-widest text-on-surface-variant"><span class="material-symbols-outlined text-secondary mr-3 text-lg">check_circle</span> Entrümpelungen</li>
             </ul>
-            <a class="inline-block bg-secondary text-primary px-8 py-4 font-bold uppercase text-[10px] tracking-[0.2em] rounded-xl btn-glow" href="#kontakt">Projekt anfragen</a>
+            <a class="inline-block bg-secondary text-primary px-8 py-4 font-bold uppercase text-[10px] tracking-[0.2em] rounded-full btn-glow" href="#kontakt">Projekt anfragen</a>
         </div>
         <div class="bg-surface-container-low p-8 sm:p-12 border border-secondary/20 shadow-xl card-hover rounded-xl reveal-right">
             <h3 class="text-2xl sm:text-3xl font-headline font-bold mb-8 text-white">Gewerbe & Portfolio</h3>
@@ -594,7 +643,7 @@
                 <li class="flex items-center text-xs font-bold uppercase tracking-widest text-secondary"><span class="material-symbols-outlined mr-3 text-lg">verified</span> Fachgerechte Entkernungen</li>
                 <li class="flex items-center text-xs font-bold uppercase tracking-widest text-secondary"><span class="material-symbols-outlined mr-3 text-lg">verified</span> 24h Facility Management</li>
             </ul>
-            <a class="inline-block bg-secondary text-primary px-8 py-4 font-bold uppercase text-[10px] tracking-[0.2em] rounded-xl btn-glow" href="#kontakt">B2B Kontakt</a>
+            <a class="inline-block bg-secondary text-primary px-8 py-4 font-bold uppercase text-[10px] tracking-[0.2em] rounded-full btn-glow" href="#kontakt">B2B Kontakt</a>
         </div>
     </div>
 </div>
@@ -692,7 +741,7 @@
                     </div>
                     <div>
                         <h4 class="text-[10px] font-bold uppercase tracking-[0.2em] text-secondary mb-2">Telefonische Beratung</h4>
-                        <a href="tel:+491639308292" class="text-xl sm:text-2xl font-bold text-white hover:text-secondary transition-colors">0163 930 82 92</a>
+                        <a href="tel:+491639308292" class="text-base sm:text-2xl font-bold text-white hover:text-secondary transition-colors">0163 930 82 92</a>
                         <p class="text-xs text-on-surface-variant mt-1">Mo - Sa: 07:00 - 22:00 Uhr</p>
                     </div>
                 </div>
@@ -702,7 +751,7 @@
                     </div>
                     <div>
                         <h4 class="text-[10px] font-bold uppercase tracking-[0.2em] text-secondary mb-2">E-Mail Anfrage</h4>
-                        <a href="mailto:gebaeudedienstemendel@gmx.de" class="text-xl sm:text-2xl font-bold text-white hover:text-secondary transition-colors break-all">gebaeudedienstemendel@gmx.de</a>
+                        <a href="mailto:gebaeudedienstemendel@gmx.de" class="text-sm sm:text-2xl font-bold text-white hover:text-secondary transition-colors">gebaeudedienstemendel@gmx.de</a>
                     </div>
                 </div>
             </div>
@@ -760,7 +809,7 @@
                     <label class="block text-[10px] font-bold uppercase tracking-widest text-secondary mb-3">Beschreibung</label>
                     <textarea id="formMessage" class="w-full bg-transparent border-0 border-b border-white/20 focus:ring-0 focus:border-secondary transition-all py-3 px-0 text-sm text-white rounded-none" placeholder="Details zu Ihrem Vorhaben" rows="4"></textarea>
                 </div>
-                <button class="w-full bg-secondary text-primary py-4 sm:py-5 font-bold uppercase tracking-[0.2em] text-xs rounded-xl btn-glow active:scale-[0.98]" type="submit">Angebot anfordern</button>
+                <button class="w-full bg-secondary text-primary py-4 sm:py-5 font-bold uppercase tracking-[0.2em] text-xs rounded-full btn-glow active:scale-[0.98]" type="submit">Angebot anfordern</button>
             </form>
         </div>
     </div>
@@ -804,7 +853,7 @@
     </div>
 </div>
 <div class="border-t border-white/5 py-8 sm:py-10 px-4 sm:px-8 text-center text-[10px] font-bold uppercase tracking-[0.3em] text-on-surface-variant/40">
-    &copy; 2026 Gebäudedienste Mendel e.K. — Precision In Service.
+    &copy; 2026 Gebäudedienste Mendel e.K. — Powered by ED Studios.
 </div>
 </footer>
 
@@ -1057,10 +1106,60 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     window.location.href = mailtoLink;
 });
 
+// Mobile process cards: stacking + number fill
+function initProcessCards() {
+    const container = document.getElementById('processCards');
+    if (!container || window.innerWidth >= 768) return;
+    const cards = container.querySelectorAll('.process-card');
+    const nums = container.querySelectorAll('.process-num');
+    const totalCards = cards.length;
+    const scrollHeight = 1600;
+
+    window.addEventListener('scroll', () => {
+        const rect = container.getBoundingClientRect();
+        const containerTop = -rect.top;
+        const segmentHeight = scrollHeight / totalCards;
+
+        cards.forEach((card, i) => {
+            const cardStart = i * segmentHeight;
+            const cardProgress = Math.max(0, Math.min(1, (containerTop - cardStart) / (segmentHeight * 0.4)));
+            const fillProgress = Math.max(0, Math.min(100, (containerTop - cardStart - segmentHeight * 0.1) / (segmentHeight * 0.5) * 100));
+
+            if (i === 0) {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+                nums[i].style.setProperty('--fill', Math.max(0, Math.min(100, (containerTop / (segmentHeight * 0.5)) * 100)) + '%');
+            } else {
+                const prevEnd = (i - 0.3) * segmentHeight;
+                const showProgress = Math.max(0, Math.min(1, (containerTop - prevEnd) / (segmentHeight * 0.3)));
+                card.style.opacity = showProgress;
+                card.style.transform = `translateY(${(1 - showProgress) * 40}px)`;
+                card.style.marginTop = showProgress > 0 ? '-40px' : '0';
+                card.style.zIndex = i + 1;
+                card.style.position = 'relative';
+                nums[i].style.setProperty('--fill', fillProgress + '%');
+            }
+        });
+    }, { passive: true });
+}
+
+// Kernkompetenzen mobile animation
+function initKompetenzAnim() {
+    if (window.innerWidth >= 768) return;
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('active');
+        });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.kompetenz-card-anim').forEach(el => observer.observe(el));
+}
+
 // Init
 document.addEventListener('DOMContentLoaded', () => {
     initScrollReveal();
     initNavShrink();
+    initProcessCards();
+    initKompetenzAnim();
 });
 </script>
 
