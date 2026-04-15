@@ -58,9 +58,11 @@
                 },
                 borderRadius: {
                     DEFAULT: "0px",
-                    lg: "0px",
-                    xl: "0px",
-                    full: "0px"
+                    lg: "0.5rem",
+                    xl: "0.75rem",
+                    "2xl": "1rem",
+                    "3xl": "1.5rem",
+                    full: "9999px"
                 },
                 fontFamily: {
                     headline: ["Space Grotesk"],
@@ -1114,31 +1116,41 @@ function initProcessCards() {
     const nums = container.querySelectorAll('.process-num');
     const totalCards = cards.length;
     const scrollHeight = 1600;
+    const segmentHeight = scrollHeight / totalCards;
+
+    // Set initial styles
+    cards.forEach((card, i) => {
+        card.style.position = 'relative';
+        card.style.zIndex = i + 1;
+        if (i > 0) {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(50px)';
+        }
+    });
 
     window.addEventListener('scroll', () => {
         const rect = container.getBoundingClientRect();
-        const containerTop = -rect.top;
-        const segmentHeight = scrollHeight / totalCards;
+        const scrolled = -rect.top;
 
         cards.forEach((card, i) => {
+            // Each card has its own segment of the scroll
             const cardStart = i * segmentHeight;
-            const cardProgress = Math.max(0, Math.min(1, (containerTop - cardStart) / (segmentHeight * 0.4)));
-            const fillProgress = Math.max(0, Math.min(100, (containerTop - cardStart - segmentHeight * 0.1) / (segmentHeight * 0.5) * 100));
+            // Slide-in phase: first 30% of segment
+            const slideIn = Math.max(0, Math.min(1, (scrolled - cardStart) / (segmentHeight * 0.3)));
+            // Fill phase: 20%-70% of segment
+            const fillStart = cardStart + segmentHeight * 0.2;
+            const fillEnd = cardStart + segmentHeight * 0.7;
+            const fill = Math.max(0, Math.min(100, (scrolled - fillStart) / (fillEnd - fillStart) * 100));
 
             if (i === 0) {
                 card.style.opacity = '1';
                 card.style.transform = 'translateY(0)';
-                nums[i].style.setProperty('--fill', Math.max(0, Math.min(100, (containerTop / (segmentHeight * 0.5)) * 100)) + '%');
             } else {
-                const prevEnd = (i - 0.3) * segmentHeight;
-                const showProgress = Math.max(0, Math.min(1, (containerTop - prevEnd) / (segmentHeight * 0.3)));
-                card.style.opacity = showProgress;
-                card.style.transform = `translateY(${(1 - showProgress) * 40}px)`;
-                card.style.marginTop = showProgress > 0 ? '-40px' : '0';
-                card.style.zIndex = i + 1;
-                card.style.position = 'relative';
-                nums[i].style.setProperty('--fill', fillProgress + '%');
+                card.style.opacity = slideIn;
+                card.style.transform = `translateY(${(1 - slideIn) * 50}px)`;
+                card.style.marginTop = slideIn > 0.1 ? '-30px' : '0';
             }
+            nums[i].style.setProperty('--fill', fill + '%');
         });
     }, { passive: true });
 }
