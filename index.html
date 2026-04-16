@@ -571,8 +571,8 @@
         </div>
     </div>
     <!-- Mobile: stacking cards with scroll-fill numbers -->
-    <div id="processCards" class="md:hidden relative" style="height: 2000px;">
-        <div class="sticky top-24" style="height: auto;">
+    <div id="processCards" class="md:hidden relative" style="height: 2400px;">
+        <div class="sticky top-24" data-sticky style="height: auto;">
             <div class="process-card bg-surface-container border border-white/10 rounded-2xl p-6 shadow-2xl" data-step="0" style="margin-bottom: -16px; position: relative; z-index: 1;">
                 <div class="process-num text-6xl font-black font-headline mb-3 leading-none" data-fill="0">01</div>
                 <h3 class="text-lg font-bold mb-2 uppercase tracking-wider text-secondary">Anfrage</h3>
@@ -1120,39 +1120,46 @@ function initProcessCards() {
     const cards = container.querySelectorAll('.process-card');
     const nums = container.querySelectorAll('.process-num');
     const totalCards = cards.length;
-    const scrollHeight = 2000;
-    // Each card gets an equal segment of scroll distance
-    const segmentHeight = scrollHeight / totalCards; // 500px per card
+
+    // Measure inner sticky element so we know the true available scroll range.
+    // The sticky stops being sticky when: scrolled >= containerHeight - stickyHeight
+    // activeScroll = scrolled + topOffset, range [0 … containerHeight - stickyHeight]
+    const stickyEl = container.querySelector('[data-sticky]');
+    const topOffset = 96; // top-24 = 6rem
+    const stickyHeight = stickyEl ? stickyEl.offsetHeight : 600;
+    const available = container.offsetHeight - stickyHeight; // full active scroll range
+    const seg = available / totalCards; // each card gets an equal portion
 
     window.addEventListener('scroll', () => {
         const rect = container.getBoundingClientRect();
-        const scrolled = -rect.top;
+        // activeScroll is 0 when sticky begins, = available when sticky ends
+        const activeScroll = -rect.top + topOffset;
 
         cards.forEach((card, i) => {
-            const cardStart = i * segmentHeight;
-            const cardEnd = cardStart + segmentHeight;
+            const segStart = i * seg;
 
             if (i === 0) {
-                // First card is always visible
                 card.style.opacity = '1';
                 card.style.transform = 'translateY(0)';
-                // Fill from 0-60% of its segment
-                const fillProgress = Math.max(0, Math.min(100, (scrolled - cardStart) / (segmentHeight * 0.6) * 100));
-                nums[i].style.setProperty('--fill', fillProgress + '%');
+                // fill completes at 70% of first segment
+                const fill = Math.max(0, Math.min(100, activeScroll / (seg * 0.7) * 100));
+                nums[i].style.setProperty('--fill', fill + '%');
             } else {
-                // Slide-in: starts at 80% of previous card's segment, completes in first 15% of this card's segment
-                const slideStart = cardStart - segmentHeight * 0.2;
-                const slideEnd = cardStart + segmentHeight * 0.15;
-                const slideIn = Math.max(0, Math.min(1, (scrolled - slideStart) / (slideEnd - slideStart)));
+                // Slide-in: starts 20% before this segment, done at 15% into segment
+                const slideStart = segStart - seg * 0.2;
+                const slideEnd   = segStart + seg * 0.15;
+                const slideIn = Math.max(0, Math.min(1,
+                    (activeScroll - slideStart) / (slideEnd - slideStart)));
 
                 card.style.opacity = slideIn;
                 card.style.transform = `translateY(${(1 - slideIn) * 60}px)`;
 
-                // Fill: starts at 15% of segment, fills until 75% of segment
-                const fillStart = cardStart + segmentHeight * 0.15;
-                const fillEnd = cardStart + segmentHeight * 0.75;
-                const fillProgress = Math.max(0, Math.min(100, (scrolled - fillStart) / (fillEnd - fillStart) * 100));
-                nums[i].style.setProperty('--fill', fillProgress + '%');
+                // fill: from 15% to 85% of this segment
+                const fillStart = segStart + seg * 0.15;
+                const fillEnd   = segStart + seg * 0.85;
+                const fill = Math.max(0, Math.min(100,
+                    (activeScroll - fillStart) / (fillEnd - fillStart) * 100));
+                nums[i].style.setProperty('--fill', fill + '%');
             }
         });
     }, { passive: true });
