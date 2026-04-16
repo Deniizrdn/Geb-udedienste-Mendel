@@ -454,29 +454,62 @@
                     <span class="text-[9px] font-bold uppercase tracking-widest bg-secondary/10 text-secondary px-2 py-1 rounded">Schlüsselfertig</span>
                 </div>
             </div>
-            <!-- Treppenhaus -->
-            <div class="bg-surface-container rounded-xl p-6 flex flex-col items-center justify-center text-center tilt-card group">
+            <!-- Treppenhaus (desktop only) -->
+            <div class="hidden md:flex bg-surface-container rounded-xl p-6 flex-col items-center justify-center text-center tilt-card group">
                 <span class="material-symbols-outlined text-secondary text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">cleaning_services</span>
                 <h4 class="font-bold text-xs uppercase tracking-widest mb-1">Treppenhausreinigung</h4>
                 <p class="text-[10px] text-on-surface-variant/70">Regelmäßig & zuverlässig</p>
             </div>
-            <!-- Graffiti -->
-            <div class="bg-surface-container rounded-xl p-6 flex flex-col items-center justify-center text-center tilt-card group">
+            <!-- Graffiti (desktop only) -->
+            <div class="hidden md:flex bg-surface-container rounded-xl p-6 flex-col items-center justify-center text-center tilt-card group">
                 <span class="material-symbols-outlined text-secondary text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">brush</span>
                 <h4 class="font-bold text-xs uppercase tracking-widest mb-1">Graffitientfernung</h4>
                 <p class="text-[10px] text-on-surface-variant/70">Rückstandslos & schonend</p>
             </div>
-            <!-- Glasreinigung -->
-            <div class="bg-surface-container rounded-xl p-6 flex flex-col items-center justify-center text-center tilt-card group">
+            <!-- Glasreinigung (desktop only) -->
+            <div class="hidden md:flex bg-surface-container rounded-xl p-6 flex-col items-center justify-center text-center tilt-card group">
                 <span class="material-symbols-outlined text-secondary text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">window</span>
                 <h4 class="font-bold text-xs uppercase tracking-widest mb-1">Glasreinigung</h4>
                 <p class="text-[10px] text-on-surface-variant/70">Streifenfrei & professionell</p>
             </div>
-            <!-- Grundreinigung -->
-            <div class="bg-surface-container rounded-xl p-6 flex flex-col items-center justify-center text-center tilt-card group">
+            <!-- Grundreinigung (desktop only) -->
+            <div class="hidden md:flex bg-surface-container rounded-xl p-6 flex-col items-center justify-center text-center tilt-card group">
                 <span class="material-symbols-outlined text-secondary text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">water_drop</span>
                 <h4 class="font-bold text-xs uppercase tracking-widest mb-1">Grundreinigung</h4>
                 <p class="text-[10px] text-on-surface-variant/70">Tiefenrein & desinfiziert</p>
+            </div>
+            <!-- Mobile stacking cards (Treppenhaus / Graffiti / Glas / Grund) -->
+            <div id="reinigungCards" class="md:hidden col-span-1 relative" style="height: 1800px;">
+                <div class="sticky top-24" data-reinigung-sticky style="height: auto;">
+                    <div class="reinigung-card bg-surface-container border border-white/10 rounded-2xl p-6 shadow-2xl" style="margin-bottom: -16px; position: relative; z-index: 1;">
+                        <div class="flex flex-col items-center justify-center text-center py-4">
+                            <span class="material-symbols-outlined text-secondary text-5xl mb-4">cleaning_services</span>
+                            <h4 class="font-bold text-base uppercase tracking-widest mb-2 text-on-surface">Treppenhausreinigung</h4>
+                            <p class="text-sm text-on-surface-variant">Regelmäßige und zuverlässige Treppenhausreinigung für Wohn- und Gewerbeimmobilien.</p>
+                        </div>
+                    </div>
+                    <div class="reinigung-card bg-surface-container border border-white/10 rounded-2xl p-6 shadow-2xl" style="opacity:0; transform: translateY(60px); margin-bottom: -16px; position: relative; z-index: 2;">
+                        <div class="flex flex-col items-center justify-center text-center py-4">
+                            <span class="material-symbols-outlined text-secondary text-5xl mb-4">brush</span>
+                            <h4 class="font-bold text-base uppercase tracking-widest mb-2 text-on-surface">Graffitientfernung</h4>
+                            <p class="text-sm text-on-surface-variant">Rückstandslose und schonende Entfernung aller Graffiti-Arten von sämtlichen Untergründen.</p>
+                        </div>
+                    </div>
+                    <div class="reinigung-card bg-surface-container border border-white/10 rounded-2xl p-6 shadow-2xl" style="opacity:0; transform: translateY(60px); margin-bottom: -16px; position: relative; z-index: 3;">
+                        <div class="flex flex-col items-center justify-center text-center py-4">
+                            <span class="material-symbols-outlined text-secondary text-5xl mb-4">window</span>
+                            <h4 class="font-bold text-base uppercase tracking-widest mb-2 text-on-surface">Glasreinigung</h4>
+                            <p class="text-sm text-on-surface-variant">Streifenfreie Profi-Glasreinigung für Fenster, Fassaden und Glaselemente aller Art.</p>
+                        </div>
+                    </div>
+                    <div class="reinigung-card bg-surface-container border border-white/10 rounded-2xl p-6 shadow-2xl" style="opacity:0; transform: translateY(60px); position: relative; z-index: 4;">
+                        <div class="flex flex-col items-center justify-center text-center py-4">
+                            <span class="material-symbols-outlined text-secondary text-5xl mb-4">water_drop</span>
+                            <h4 class="font-bold text-base uppercase tracking-widest mb-2 text-on-surface">Grundreinigung</h4>
+                            <p class="text-sm text-on-surface-variant">Tiefenreinigung und Desinfektion — für Böden, Sanitäranlagen und alle Oberflächen.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- CTA Banner -->
             <div class="md:col-span-4 bg-secondary/10 border border-secondary/20 rounded-xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between">
@@ -781,15 +814,38 @@ function initCounters() {
 }
 
 // Stacking reinigung cards on mobile scroll
-function initStackingCards() {
-    if (window.innerWidth >= 768) return;
-    const cards = document.querySelectorAll('#reinigung .grid > .bg-surface-container');
-    if (cards.length < 2) return;
-    cards.forEach((card, i) => {
-        card.style.position = 'sticky';
-        card.style.top = (112 + i * 12) + 'px';
-        card.style.zIndex = 10 + i;
-    });
+function initReinigungCards() {
+    const container = document.getElementById('reinigungCards');
+    if (!container || window.innerWidth >= 768) return;
+    const cards = container.querySelectorAll('.reinigung-card');
+    const totalCards = cards.length;
+
+    const stickyEl = container.querySelector('[data-reinigung-sticky]');
+    const topOffset = 96; // top-24
+    const stickyHeight = stickyEl ? stickyEl.offsetHeight : 500;
+    const available = container.offsetHeight - stickyHeight;
+    const seg = available / totalCards;
+
+    window.addEventListener('scroll', () => {
+        const rect = container.getBoundingClientRect();
+        const activeScroll = -rect.top + topOffset;
+
+        cards.forEach((card, i) => {
+            const segStart = i * seg;
+
+            if (i === 0) {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            } else {
+                const slideStart = segStart - seg * 0.2;
+                const slideEnd   = segStart + seg * 0.15;
+                const slideIn = Math.max(0, Math.min(1,
+                    (activeScroll - slideStart) / (slideEnd - slideStart)));
+                card.style.opacity = slideIn;
+                card.style.transform = `translateY(${(1 - slideIn) * 60}px)`;
+            }
+        });
+    }, { passive: true });
 }
 
 // Init all
@@ -799,7 +855,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initTiltCards();
     initParallax();
     initCounters();
-    initStackingCards();
+    initReinigungCards();
 });
 </script>
 
